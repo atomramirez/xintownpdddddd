@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap');
-        body { 
-            font-family: 'Sarabun', sans-serif; 
+
+        body {
+            font-family: 'Sarabun', sans-serif;
             box-sizing: border-box;
         }
-        
+
         /* Enhanced Menu Cards with Beautiful Animations */
         .menu-card {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -19,10 +21,12 @@
             position: relative;
             overflow: hidden;
         }
+
         .menu-card:hover {
             transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15), 0 0 30px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), 0 0 30px rgba(59, 130, 246, 0.3);
         }
+
         .menu-card::before {
             content: '';
             position: absolute;
@@ -30,19 +34,21 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
+
         .menu-card:hover::before {
             left: 100%;
         }
-        
+
         /* Enhanced Button Styles */
         .enhanced-btn {
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
         }
+
         .enhanced-btn::before {
             content: '';
             position: absolute;
@@ -50,130 +56,180 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
+
         .enhanced-btn:hover::before {
             left: 100%;
         }
-        
+
         /* Floating Animation */
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
+
         .float-animation {
             animation: float 3s ease-in-out infinite;
         }
-        
+
         /* Background Animations */
         @keyframes slowFloat {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
         }
-        
+
         @keyframes gentlePulse {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.1); }
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(1.1);
+            }
         }
-        
+
         @keyframes driftLeft {
-            0% { transform: translateX(100vw) rotate(0deg); }
-            100% { transform: translateX(-100px) rotate(360deg); }
+            0% {
+                transform: translateX(100vw) rotate(0deg);
+            }
+
+            100% {
+                transform: translateX(-100px) rotate(360deg);
+            }
         }
-        
+
         @keyframes driftRight {
-            0% { transform: translateX(-100px) rotate(0deg); }
-            100% { transform: translateX(100vw) rotate(-360deg); }
+            0% {
+                transform: translateX(-100px) rotate(0deg);
+            }
+
+            100% {
+                transform: translateX(100vw) rotate(-360deg);
+            }
         }
-        
+
         @keyframes twinkle {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 0.8; }
+
+            0%,
+            100% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
         }
-        
+
         .bg-element {
             position: fixed;
             pointer-events: none;
             z-index: 1;
         }
-        
+
         .slow-float {
             animation: slowFloat 6s ease-in-out infinite;
         }
-        
+
         .gentle-pulse {
             animation: gentlePulse 4s ease-in-out infinite;
         }
-        
+
         .drift-left {
             animation: driftLeft 25s linear infinite;
         }
-        
+
         .drift-right {
             animation: driftRight 30s linear infinite;
         }
-        
+
         .twinkle {
             animation: twinkle 3s ease-in-out infinite;
         }
-        
+
         /* Gradient Orbs */
         .gradient-orb {
             border-radius: 50%;
             filter: blur(1px);
         }
-        
+
         .gradient-orb-1 {
             background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(59, 130, 246, 0.1) 50%, transparent 100%);
         }
-        
+
         .gradient-orb-2 {
             background: radial-gradient(circle, rgba(147, 51, 234, 0.3) 0%, rgba(147, 51, 234, 0.1) 50%, transparent 100%);
         }
-        
+
         .gradient-orb-3 {
             background: radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, rgba(236, 72, 153, 0.1) 50%, transparent 100%);
         }
-        
+
         /* Glowing Effect */
         .glow-effect {
             box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
         }
-        
+
         .category-tab.active {
             color: #2563eb;
             border-bottom-color: #2563eb;
             box-shadow: 0 2px 10px rgba(37, 99, 235, 0.3);
         }
+
         .category-content {
             display: block;
         }
+
         .category-content.hidden {
             display: none;
         }
-        
+
         /* Music Tab Styles */
         .music-tab {
             transition: all 0.3s ease;
             border-bottom: 2px solid transparent;
         }
+
         .music-tab.active {
             color: #2563eb;
             border-bottom-color: #2563eb;
         }
+
         .tab-content {
             display: block;
         }
+
         .tab-content.hidden {
             display: none;
         }
+
         .page-content {
             display: block;
         }
+
         .page-content.hidden {
             display: none;
         }
+
         .slider::-webkit-slider-thumb {
             appearance: none;
             height: 20px;
@@ -181,52 +237,56 @@
             border-radius: 50%;
             background: linear-gradient(135deg, #ffffff, #f3f4f6);
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4), 0 2px 6px rgba(0,0,0,0.3);
-            border: 3px solid rgba(255,255,255,0.9);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.9);
             transition: all 0.2s ease;
         }
+
         .slider::-webkit-slider-thumb:hover {
             transform: scale(1.15);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.5), 0 3px 8px rgba(0,0,0,0.4);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5), 0 3px 8px rgba(0, 0, 0, 0.4);
             border: 3px solid #ffffff;
         }
+
         .slider::-moz-range-thumb {
             height: 20px;
             width: 20px;
             border-radius: 50%;
             background: linear-gradient(135deg, #ffffff, #f3f4f6);
             cursor: pointer;
-            border: 3px solid rgba(255,255,255,0.9);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4), 0 2px 6px rgba(0,0,0,0.3);
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.3);
         }
+
         .slider {
-            background: linear-gradient(to right, rgba(255,255,255,0.7), rgba(255,255,255,0.4));
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.4));
             border-radius: 12px;
             outline: none;
             transition: all 0.2s ease;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
         }
+
         .slider:hover {
-            background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.6));
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3), 0 2px 8px rgba(255,255,255,0.3);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(255, 255, 255, 0.3);
         }
-        
+
         /* Force 24-hour format for time inputs */
         .time-24h {
             -webkit-appearance: none;
             -moz-appearance: textfield;
         }
-        
+
         .time-24h::-webkit-calendar-picker-indicator {
             filter: invert(1);
         }
-        
+
         .time-24h::-webkit-inner-spin-button,
         .time-24h::-webkit-outer-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
-        
+
         /* Hide AM/PM completely */
         .time-24h::-webkit-datetime-edit-ampm-field {
             display: none !important;
@@ -234,42 +294,54 @@
             width: 0 !important;
             height: 0 !important;
         }
-        
+
         .time-24h::-webkit-datetime-edit {
             color: #374151;
             font-size: 1.125rem;
         }
-        
+
         /* Additional CSS to force 24-hour format */
         input[type="time"].time-24h {
             font-family: monospace;
         }
     </style>
 </head>
+
 <body class="bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 min-h-screen">
     <!-- Animated Background Elements -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none" style="z-index: 1;">
         <!-- Floating Gradient Orbs -->
-        <div class="bg-element gradient-orb gradient-orb-1 w-32 h-32 slow-float" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
-        <div class="bg-element gradient-orb gradient-orb-2 w-24 h-24 gentle-pulse" style="top: 20%; right: 10%; animation-delay: 1s;"></div>
-        <div class="bg-element gradient-orb gradient-orb-3 w-40 h-40 slow-float" style="bottom: 15%; left: 15%; animation-delay: 2s;"></div>
-        <div class="bg-element gradient-orb gradient-orb-1 w-20 h-20 gentle-pulse" style="top: 60%; right: 20%; animation-delay: 3s;"></div>
-        <div class="bg-element gradient-orb gradient-orb-2 w-28 h-28 slow-float" style="bottom: 30%; right: 5%; animation-delay: 4s;"></div>
-        
+        <div class="bg-element gradient-orb gradient-orb-1 w-32 h-32 slow-float"
+            style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+        <div class="bg-element gradient-orb gradient-orb-2 w-24 h-24 gentle-pulse"
+            style="top: 20%; right: 10%; animation-delay: 1s;"></div>
+        <div class="bg-element gradient-orb gradient-orb-3 w-40 h-40 slow-float"
+            style="bottom: 15%; left: 15%; animation-delay: 2s;"></div>
+        <div class="bg-element gradient-orb gradient-orb-1 w-20 h-20 gentle-pulse"
+            style="top: 60%; right: 20%; animation-delay: 3s;"></div>
+        <div class="bg-element gradient-orb gradient-orb-2 w-28 h-28 slow-float"
+            style="bottom: 30%; right: 5%; animation-delay: 4s;"></div>
+
         <!-- Drifting Elements -->
         <div class="bg-element drift-left text-6xl opacity-20" style="top: 25%; animation-delay: 0s;">🚔</div>
         <div class="bg-element drift-right text-4xl opacity-15" style="top: 45%; animation-delay: 5s;">⚖️</div>
         <div class="bg-element drift-left text-5xl opacity-10" style="top: 70%; animation-delay: 10s;">🏛️</div>
         <div class="bg-element drift-right text-3xl opacity-20" style="top: 15%; animation-delay: 15s;">👮‍♂️</div>
-        
+
         <!-- Twinkling Stars -->
-        <div class="bg-element twinkle w-2 h-2 bg-white rounded-full" style="top: 12%; left: 25%; animation-delay: 0s;"></div>
-        <div class="bg-element twinkle w-1 h-1 bg-blue-200 rounded-full" style="top: 35%; left: 70%; animation-delay: 1s;"></div>
-        <div class="bg-element twinkle w-2 h-2 bg-purple-200 rounded-full" style="top: 55%; left: 40%; animation-delay: 2s;"></div>
-        <div class="bg-element twinkle w-1 h-1 bg-white rounded-full" style="top: 75%; left: 80%; animation-delay: 3s;"></div>
-        <div class="bg-element twinkle w-2 h-2 bg-blue-300 rounded-full" style="top: 25%; left: 90%; animation-delay: 4s;"></div>
-        <div class="bg-element twinkle w-1 h-1 bg-purple-300 rounded-full" style="top: 85%; left: 15%; animation-delay: 5s;"></div>
-        
+        <div class="bg-element twinkle w-2 h-2 bg-white rounded-full" style="top: 12%; left: 25%; animation-delay: 0s;">
+        </div>
+        <div class="bg-element twinkle w-1 h-1 bg-blue-200 rounded-full"
+            style="top: 35%; left: 70%; animation-delay: 1s;"></div>
+        <div class="bg-element twinkle w-2 h-2 bg-purple-200 rounded-full"
+            style="top: 55%; left: 40%; animation-delay: 2s;"></div>
+        <div class="bg-element twinkle w-1 h-1 bg-white rounded-full" style="top: 75%; left: 80%; animation-delay: 3s;">
+        </div>
+        <div class="bg-element twinkle w-2 h-2 bg-blue-300 rounded-full"
+            style="top: 25%; left: 90%; animation-delay: 4s;"></div>
+        <div class="bg-element twinkle w-1 h-1 bg-purple-300 rounded-full"
+            style="top: 85%; left: 15%; animation-delay: 5s;"></div>
+
         <!-- Subtle Geometric Shapes -->
         <div class="bg-element slow-float opacity-10" style="top: 40%; left: 8%; animation-delay: 1s;">
             <div class="w-16 h-16 border-2 border-white/20 rotate-45"></div>
@@ -283,7 +355,8 @@
     </div>
 
     <!-- Navigation Bar -->
-    <nav id="navbar" class="bg-white/10 backdrop-blur-md border-b border-white/20 shadow-lg shadow-blue-500/20 glow-effect relative z-10 transition-transform duration-300">
+    <nav id="navbar"
+        class="bg-white/10 backdrop-blur-md border-b border-white/20 shadow-lg shadow-blue-500/20 glow-effect relative z-10 transition-transform duration-300">
         <div class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
                 <h1 class="text-2xl font-bold text-white flex items-center float-animation">
@@ -291,42 +364,60 @@
                 </h1>
                 <div class="flex items-center space-x-4">
                     <!-- Music Controls -->
-                    <div class="flex items-center space-x-1 bg-white/15 backdrop-blur-md rounded-lg px-2 py-1 border border-white/20 shadow-lg">
+                    <div
+                        class="flex items-center space-x-1 bg-white/15 backdrop-blur-md rounded-lg px-2 py-1 border border-white/20 shadow-lg">
                         <!-- Previous Song -->
-                        <button id="prevBtnNav" class="text-white hover:text-blue-200 transition-all duration-300 text-sm hover:scale-110" title="เพลงก่อนหน้า">
+                        <button id="prevBtnNav"
+                            class="text-white hover:text-blue-200 transition-all duration-300 text-sm hover:scale-110"
+                            title="เพลงก่อนหน้า">
                             ⏮️
                         </button>
                         <!-- Play/Pause -->
-                        <button id="playPauseBtnNav" class="text-white hover:text-blue-200 transition-all duration-300 text-sm hover:scale-110" title="เล่น/หยุด">
+                        <button id="playPauseBtnNav"
+                            class="text-white hover:text-blue-200 transition-all duration-300 text-sm hover:scale-110"
+                            title="เล่น/หยุด">
                             ▶️
                         </button>
                         <!-- Next Song -->
-                        <button id="nextBtnNav" class="text-white hover:text-blue-200 transition-all duration-300 text-sm hover:scale-110" title="เพลงถัดไป">
+                        <button id="nextBtnNav"
+                            class="text-white hover:text-blue-200 transition-all duration-300 text-sm hover:scale-110"
+                            title="เพลงถัดไป">
                             ⏭️
                         </button>
                         <div class="w-px h-3 bg-white/30"></div>
-                        <button id="autoplayBtn" class="text-white hover:text-blue-200 transition-all duration-300 text-sm hover:scale-110 bg-green-600/30 px-1 py-0.5 rounded" title="เล่นอัตโนมัติ">
+                        <button id="autoplayBtn"
+                            class="text-white hover:text-blue-200 transition-all duration-300 text-sm hover:scale-110 bg-green-600/30 px-1 py-0.5 rounded"
+                            title="เล่นอัตโนมัติ">
                             🔄
                         </button>
-                        <button id="loopBtn" class="text-white hover:text-blue-200 transition-all duration-300 text-sm hover:scale-110 bg-blue-600/30 px-1 py-0.5 rounded" title="วนซ้ำ">
+                        <button id="loopBtn"
+                            class="text-white hover:text-blue-200 transition-all duration-300 text-sm hover:scale-110 bg-blue-600/30 px-1 py-0.5 rounded"
+                            title="วนซ้ำ">
                             🔁
                         </button>
                         <div class="w-px h-3 bg-white/30"></div>
-                        <button id="muteBtn" class="text-white hover:text-blue-200 transition-all duration-300 text-sm hover:scale-110" title="เปิด/ปิดเสียง">
+                        <button id="muteBtn"
+                            class="text-white hover:text-blue-200 transition-all duration-300 text-sm hover:scale-110"
+                            title="เปิด/ปิดเสียง">
                             🔊
                         </button>
-                        <input type="range" id="volumeSliderNav" min="0" max="100" value="20" 
-                               class="w-16 h-2 bg-white/40 rounded-lg appearance-none cursor-pointer slider border border-white/30">
-                        <span id="volumeDisplayNav" class="text-white text-xs bg-white/30 px-1 py-0.5 rounded min-w-[30px] text-center border border-white/20">20%</span>
+                        <input type="range" id="volumeSliderNav" min="0" max="100" value="20"
+                            class="w-16 h-2 bg-white/40 rounded-lg appearance-none cursor-pointer slider border border-white/30">
+                        <span id="volumeDisplayNav"
+                            class="text-white text-xs bg-white/30 px-1 py-0.5 rounded min-w-[30px] text-center border border-white/20">20%</span>
                         <div class="w-px h-3 bg-white/30"></div>
-                        <button id="changeMusicBtn" class="text-white hover:text-blue-200 transition-all duration-300 text-sm hover:scale-110 bg-white/25 hover:bg-white/35 px-1 py-0.5 rounded" title="เปลี่ยนเพลง">
+                        <button id="changeMusicBtn"
+                            class="text-white hover:text-blue-200 transition-all duration-300 text-sm hover:scale-110 bg-white/25 hover:bg-white/35 px-1 py-0.5 rounded"
+                            title="เปลี่ยนเพลง">
                             🎵
                         </button>
                     </div>
-                    <button onclick="showPage('shiftSummaryPage')" id="shiftBtn" class="text-white hover:text-blue-200 transition-colors font-medium enhanced-btn bg-white/10 px-4 py-2 rounded-lg mr-2">
+                    <button onclick="showPage('shiftSummaryPage')" id="shiftBtn"
+                        class="text-white hover:text-blue-200 transition-colors font-medium enhanced-btn bg-white/10 px-4 py-2 rounded-lg mr-2">
                         ⏰ สรุปเวลาเข้าเวร
                     </button>
-                    <button onclick="goToHomePage()" id="homeBtn" class="text-white hover:text-blue-200 transition-colors font-medium enhanced-btn bg-white/10 px-4 py-2 rounded-lg">
+                    <button onclick="goToHomePage()" id="homeBtn"
+                        class="text-white hover:text-blue-200 transition-colors font-medium enhanced-btn bg-white/10 px-4 py-2 rounded-lg">
                         🏠 หน้าหลัก
                     </button>
                 </div>
@@ -340,7 +431,8 @@
     <audio id="audioPlayer" style="display: none;" preload="auto"></audio>
 
     <!-- Music Selection Modal -->
-    <div id="musicModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center">
+    <div id="musicModal"
+        class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center">
         <div class="bg-white rounded-2xl shadow-2xl p-6 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-3xl font-bold text-gray-800">🎵 เพลงพื้นหลัง</h3>
@@ -355,22 +447,17 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-600 mb-2">🎬 จาก YouTube URL</label>
                         <div class="flex gap-2">
-                            <input 
-                                type="text" 
-                                id="youtubeUrl" 
-                                placeholder="วาง YouTube URL ที่นี่..."
-                                class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                            >
-                            <button 
-                                id="addSongBtn"
-                                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
-                            >
+                            <input type="text" id="youtubeUrl" placeholder="วาง YouTube URL ที่นี่..."
+                                class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <button id="addSongBtn"
+                                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors">
                                 เพิ่ม
                             </button>
                         </div>
                     </div>
                 </div>
-                <p class="text-xs text-gray-500 mt-2">หมายเหตุ: บางเพลงอาจไม่สามารถเล่นได้เนื่องจากข้อจำกัดของ YouTube</p>
+                <p class="text-xs text-gray-500 mt-2">หมายเหตุ: บางเพลงอาจไม่สามารถเล่นได้เนื่องจากข้อจำกัดของ YouTube
+                </p>
             </div>
 
             <!-- Current Playing -->
@@ -379,18 +466,12 @@
                     <h4 class="text-lg font-semibold text-gray-800">🎵 กำลังเล่น</h4>
                     <div class="flex items-center gap-3">
                         <span class="text-sm text-gray-600">🔊</span>
-                        <input 
-                            type="range" 
-                            id="volumeSliderModal" 
-                            min="0" 
-                            max="100" 
-                            value="20"
-                            class="w-24 h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
-                        >
+                        <input type="range" id="volumeSliderModal" min="0" max="100" value="20"
+                            class="w-24 h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer">
                         <span id="volumeDisplayModal" class="text-sm w-8 text-gray-600">20%</span>
                     </div>
                 </div>
-                
+
                 <div id="currentSongModal" class="text-center">
                     <div class="text-lg font-medium mb-2 text-gray-800">ยังไม่มีเพลงที่เล่น</div>
                     <div class="text-sm text-gray-600">เพิ่มเพลงแรกของคุณเพื่อเริ่มฟัง</div>
@@ -398,19 +479,26 @@
 
                 <!-- Player Controls -->
                 <div class="flex justify-center gap-4 mt-6">
-                    <button id="prevBtnModal" class="bg-gray-600 hover:bg-gray-700 text-white p-3 rounded-full transition-colors">
+                    <button id="prevBtnModal"
+                        class="bg-gray-600 hover:bg-gray-700 text-white p-3 rounded-full transition-colors">
                         ⏮️
                     </button>
-                    <button id="playPauseBtnModal" class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors">
+                    <button id="playPauseBtnModal"
+                        class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors">
                         ▶️
                     </button>
-                    <button id="nextBtnModal" class="bg-gray-600 hover:bg-gray-700 text-white p-3 rounded-full transition-colors">
+                    <button id="nextBtnModal"
+                        class="bg-gray-600 hover:bg-gray-700 text-white p-3 rounded-full transition-colors">
                         ⏭️
                     </button>
-                    <button id="autoplayBtnModal" class="bg-green-600 hover:bg-green-700 text-white p-3 rounded-full transition-colors" title="เล่นอัตโนมัติ">
+                    <button id="autoplayBtnModal"
+                        class="bg-green-600 hover:bg-green-700 text-white p-3 rounded-full transition-colors"
+                        title="เล่นอัตโนมัติ">
                         🔄
                     </button>
-                    <button id="loopBtnModal" class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors" title="วนซ้ำ">
+                    <button id="loopBtnModal"
+                        class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors"
+                        title="วนซ้ำ">
                         🔁
                     </button>
                 </div>
@@ -420,9 +508,10 @@
             <div class="mb-4">
                 <h4 class="text-lg font-semibold text-gray-700 mb-3 flex items-center">
                     📋 เพลย์ลิสต์
-                    <span id="playlistCountModal" class="ml-2 bg-blue-600 text-white text-xs px-2 py-1 rounded-full">0</span>
+                    <span id="playlistCountModal"
+                        class="ml-2 bg-blue-600 text-white text-xs px-2 py-1 rounded-full">0</span>
                 </h4>
-                
+
                 <div id="playlistModal" class="space-y-3 max-h-60 overflow-y-auto">
                     <div class="text-center text-gray-400 py-8">
                         <div class="text-4xl mb-2">🎵</div>
@@ -434,14 +523,16 @@
 
             <!-- Controls -->
             <div class="flex justify-between mt-6">
-                <button onclick="clearMainPlaylist()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm">
+                <button onclick="clearMainPlaylist()"
+                    class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm">
                     🗑️ ล้างเพลย์ลิสต์
                 </button>
             </div>
 
             <!-- Close Button -->
             <div class="flex justify-center mt-6">
-                <button onclick="closeMusicModal()" class="bg-gray-500 hover:bg-gray-600 text-white px-8 py-2 rounded-lg">
+                <button onclick="closeMusicModal()"
+                    class="bg-gray-500 hover:bg-gray-600 text-white px-8 py-2 rounded-lg">
                     ปิด
                 </button>
             </div>
@@ -461,7 +552,7 @@
                 this.currentPlayerType = null;
                 this.autoplay = true;
                 this.loop = true;
-                
+
                 this.initializeElements();
                 this.bindEvents();
                 this.loadYouTubeAPI();
@@ -586,7 +677,7 @@
                         onReady: () => {
                             this.isPlayerReady = true;
                             this.player.setVolume(this.volume);
-                            
+
                             if (this.playlist.length > 0 && !this.playlist[0].isLocalFile) {
                                 this.loadAndPlay(this.playlist[0].id);
                             }
@@ -615,7 +706,7 @@
                     url: 'https://youtu.be/bbadAgQphqY?si=0JebRgPV5SbQcsm0',
                     isLocalFile: false
                 };
-                
+
                 this.playlist = [welcomeSong];
                 this.currentIndex = 0;
                 this.updatePlaylistDisplay();
@@ -646,7 +737,7 @@
                 };
 
                 this.playlist.push(song);
-                
+
                 if (this.playlist.length === 1 && this.currentIndex === -1) {
                     this.currentIndex = 0;
                     this.updateCurrentSongDisplay();
@@ -659,7 +750,7 @@
 
             loadAndPlay(videoId) {
                 if (!this.player || !this.isPlayerReady) return;
-                
+
                 this.stopAllPlayers();
                 this.currentPlayerType = 'youtube';
                 this.player.loadVideoById(videoId);
@@ -670,11 +761,11 @@
                 if (this.player && this.isPlayerReady) {
                     this.player.pauseVideo();
                 }
-                
+
                 if (this.audioPlayer) {
                     this.audioPlayer.pause();
                 }
-                
+
                 this.isPlaying = false;
                 this.updatePlayButtons('▶️');
             }
@@ -705,10 +796,10 @@
                             <button onclick="musicSystem.playSong(${index})" class="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-sm transition-colors">
                                 เล่น
                             </button>
-                            ${index === 0 ? 
-                                '<button class="bg-gray-500 cursor-not-allowed px-3 py-1 rounded text-sm opacity-50" disabled>🔒 ป้องกัน</button>' :
-                                `<button onclick="musicSystem.removeSong(${index})" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-sm transition-colors">ลบ</button>`
-                            }
+                            ${index === 0 ?
+                        '<button class="bg-gray-500 cursor-not-allowed px-3 py-1 rounded text-sm opacity-50" disabled>🔒 ป้องกัน</button>' :
+                        `<button onclick="musicSystem.removeSong(${index})" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-sm transition-colors">ลบ</button>`
+                    }
                         </div>
                     </div>
                 `).join('');
@@ -734,11 +825,11 @@
 
             playSong(index) {
                 if (index < 0 || index >= this.playlist.length) return;
-                
+
                 this.currentIndex = index;
                 this.updateCurrentSongDisplay();
                 this.updatePlaylistDisplay();
-                
+
                 const song = this.playlist[index];
                 if (song.isLocalFile) {
                     this.playLocalAudio(song.url);
@@ -751,15 +842,15 @@
 
             removeSong(index) {
                 if (index < 0 || index >= this.playlist.length) return;
-                
+
                 // ป้องกันการลบเพลงเริ่มต้น (เพลงแรก)
                 if (index === 0) {
                     alert('ไม่สามารถลบเพลงเริ่มต้นได้');
                     return;
                 }
-                
+
                 this.playlist.splice(index, 1);
-                
+
                 if (index === this.currentIndex) {
                     this.stopAllPlayers();
                     if (this.playlist.length === 0) {
@@ -773,20 +864,20 @@
                 } else if (index < this.currentIndex) {
                     this.currentIndex--;
                 }
-                
+
                 this.updatePlaylistDisplay();
                 this.updateCurrentSongDisplay();
             }
 
             setVolume(value) {
                 this.volume = parseInt(value);
-                
+
                 document.getElementById('volumeDisplayModal').textContent = `${this.volume}%`;
                 document.getElementById('volumeDisplayNav').textContent = `${this.volume}%`;
-                
+
                 this.volumeSlider.value = this.volume;
                 document.getElementById('volumeSliderNav').value = this.volume;
-                
+
                 if (this.currentPlayerType === 'youtube' && this.player && this.isPlayerReady) {
                     this.player.setVolume(this.volume);
                 } else if (this.currentPlayerType === 'audio' && this.audioPlayer) {
@@ -796,7 +887,7 @@
 
             togglePlayPause() {
                 if (this.currentIndex === -1) return;
-                
+
                 if (this.currentPlayerType === 'youtube' && this.player && this.isPlayerReady) {
                     if (this.isPlaying) {
                         this.player.pauseVideo();
@@ -814,14 +905,14 @@
 
             previousSong() {
                 if (this.playlist.length === 0) return;
-                
+
                 const newIndex = this.currentIndex > 0 ? this.currentIndex - 1 : this.playlist.length - 1;
                 this.playSong(newIndex);
             }
 
             nextSong() {
                 if (this.playlist.length === 0) return;
-                
+
                 if (this.currentIndex < this.playlist.length - 1) {
                     this.playSong(this.currentIndex + 1);
                 } else if (this.loop) {
@@ -842,7 +933,7 @@
             updateAutoplayButton() {
                 const navBtn = document.getElementById('autoplayBtn');
                 const modalBtn = document.getElementById('autoplayBtnModal');
-                
+
                 if (this.autoplay) {
                     navBtn.classList.add('bg-green-600/30');
                     navBtn.classList.remove('bg-gray-600/30');
@@ -859,7 +950,7 @@
             updateLoopButton() {
                 const navBtn = document.getElementById('loopBtn');
                 const modalBtn = document.getElementById('loopBtnModal');
-                
+
                 if (this.loop) {
                     navBtn.classList.add('bg-blue-600/30');
                     navBtn.classList.remove('bg-gray-600/30');
@@ -892,12 +983,12 @@
         function clearMainPlaylist() {
             if (confirm('คุณต้องการล้างเพลงที่เพิ่มเข้ามาทั้งหมดหรือไม่? (เพลงเริ่มต้นจะไม่ถูกลบ)')) {
                 musicSystem.stopAllPlayers();
-                
+
                 // เก็บเพลงเริ่มต้น (เพลงแรก) ไว้
                 const defaultSong = musicSystem.playlist[0];
                 musicSystem.playlist = [defaultSong];
                 musicSystem.currentIndex = 0;
-                
+
                 musicSystem.updatePlaylistDisplay();
                 musicSystem.updateCurrentSongDisplay();
                 musicSystem.playSong(0);
@@ -914,99 +1005,128 @@
         }
     </script>
     <!-- Welcome Screen -->
-    <div id="welcomeScreen" class="page-content min-h-screen flex items-center justify-center relative z-10 overflow-hidden">
+    <div id="welcomeScreen"
+        class="page-content min-h-screen flex items-center justify-center relative z-10 overflow-hidden">
         <!-- Enhanced Background Elements for Welcome Screen -->
         <div class="absolute inset-0 pointer-events-none">
             <!-- Large Floating Police Elements -->
             <div class="absolute top-20 left-10 text-9xl opacity-10 slow-float" style="animation-delay: 0s;">🚔</div>
             <div class="absolute top-32 right-16 text-7xl opacity-15 gentle-pulse" style="animation-delay: 1s;">⚖️</div>
-            <div class="absolute bottom-20 left-20 text-8xl opacity-10 slow-float" style="animation-delay: 2s;">🏛️</div>
-            <div class="absolute bottom-32 right-12 text-6xl opacity-15 gentle-pulse" style="animation-delay: 3s;">👮‍♂️</div>
-            
+            <div class="absolute bottom-20 left-20 text-8xl opacity-10 slow-float" style="animation-delay: 2s;">🏛️
+            </div>
+            <div class="absolute bottom-32 right-12 text-6xl opacity-15 gentle-pulse" style="animation-delay: 3s;">👮‍♂️
+            </div>
+
             <!-- Animated Light Rays -->
             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <div class="w-96 h-96 border border-white/10 rounded-full animate-spin" style="animation-duration: 20s;"></div>
-                <div class="absolute top-8 left-8 w-80 h-80 border border-blue-300/20 rounded-full animate-spin" style="animation-duration: 15s; animation-direction: reverse;"></div>
-                <div class="absolute top-16 left-16 w-64 h-64 border border-purple-300/15 rounded-full animate-spin" style="animation-duration: 25s;"></div>
+                <div class="w-96 h-96 border border-white/10 rounded-full animate-spin"
+                    style="animation-duration: 20s;"></div>
+                <div class="absolute top-8 left-8 w-80 h-80 border border-blue-300/20 rounded-full animate-spin"
+                    style="animation-duration: 15s; animation-direction: reverse;"></div>
+                <div class="absolute top-16 left-16 w-64 h-64 border border-purple-300/15 rounded-full animate-spin"
+                    style="animation-duration: 25s;"></div>
             </div>
-            
+
             <!-- Floating Particles -->
-            <div class="absolute top-1/4 left-1/4 w-3 h-3 bg-blue-400/30 rounded-full animate-bounce" style="animation-delay: 0s; animation-duration: 3s;"></div>
-            <div class="absolute top-3/4 right-1/4 w-2 h-2 bg-purple-400/40 rounded-full animate-bounce" style="animation-delay: 1s; animation-duration: 4s;"></div>
-            <div class="absolute top-1/2 left-1/6 w-4 h-4 bg-white/20 rounded-full animate-bounce" style="animation-delay: 2s; animation-duration: 2.5s;"></div>
-            <div class="absolute bottom-1/4 left-3/4 w-2 h-2 bg-blue-300/50 rounded-full animate-bounce" style="animation-delay: 3s; animation-duration: 3.5s;"></div>
+            <div class="absolute top-1/4 left-1/4 w-3 h-3 bg-blue-400/30 rounded-full animate-bounce"
+                style="animation-delay: 0s; animation-duration: 3s;"></div>
+            <div class="absolute top-3/4 right-1/4 w-2 h-2 bg-purple-400/40 rounded-full animate-bounce"
+                style="animation-delay: 1s; animation-duration: 4s;"></div>
+            <div class="absolute top-1/2 left-1/6 w-4 h-4 bg-white/20 rounded-full animate-bounce"
+                style="animation-delay: 2s; animation-duration: 2.5s;"></div>
+            <div class="absolute bottom-1/4 left-3/4 w-2 h-2 bg-blue-300/50 rounded-full animate-bounce"
+                style="animation-delay: 3s; animation-duration: 3.5s;"></div>
         </div>
 
         <div class="text-center max-w-4xl mx-auto px-4 relative z-10">
             <!-- Enhanced Police Badge with Multiple Layers -->
             <div class="mb-12 relative">
                 <!-- Outer Glow Ring -->
-                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 border-4 border-blue-400/30 rounded-full animate-pulse glow-effect" style="animation-duration: 2s;"></div>
-                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 border-2 border-white/20 rounded-full animate-pulse" style="animation-duration: 3s; animation-delay: 0.5s;"></div>
-                
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 border-4 border-blue-400/30 rounded-full animate-pulse glow-effect"
+                    style="animation-duration: 2s;"></div>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 border-2 border-white/20 rounded-full animate-pulse"
+                    style="animation-duration: 3s; animation-delay: 0.5s;"></div>
+
                 <!-- Main Badge -->
                 <div class="relative float-animation">
                     <div class="text-9xl mb-6 filter drop-shadow-2xl">🚔</div>
-                    
+
                     <!-- Animated Underline -->
                     <div class="flex justify-center space-x-2 mb-4">
-                        <div class="w-8 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full animate-pulse glow-effect" style="animation-delay: 0s;"></div>
-                        <div class="w-12 h-1 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 rounded-full animate-pulse glow-effect" style="animation-delay: 0.5s;"></div>
-                        <div class="w-8 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full animate-pulse glow-effect" style="animation-delay: 1s;"></div>
+                        <div class="w-8 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full animate-pulse glow-effect"
+                            style="animation-delay: 0s;"></div>
+                        <div class="w-12 h-1 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 rounded-full animate-pulse glow-effect"
+                            style="animation-delay: 0.5s;"></div>
+                        <div class="w-8 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full animate-pulse glow-effect"
+                            style="animation-delay: 1s;"></div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Enhanced Title with Multiple Effects -->
             <div class="mb-8">
-                <h1 class="text-7xl md:text-8xl font-bold bg-gradient-to-r from-white via-blue-200 via-purple-200 to-white bg-clip-text text-transparent mb-4 animate-pulse leading-tight filter drop-shadow-lg">
+                <h1
+                    class="text-7xl md:text-8xl font-bold bg-gradient-to-r from-white via-blue-200 via-purple-200 to-white bg-clip-text text-transparent mb-4 animate-pulse leading-tight filter drop-shadow-lg">
                     XINTOWN POLICE
                 </h1>
-                
+
                 <!-- Subtitle -->
-                <div class="text-xl md:text-2xl text-blue-200/80 font-medium mb-2 animate-pulse" style="animation-delay: 0.5s;">
+                <div class="text-xl md:text-2xl text-blue-200/80 font-medium mb-2 animate-pulse"
+                    style="animation-delay: 0.5s;">
                     🏛️ ระบบจัดการข้อมูลและคำนวณค่าปรับ 🏛️
                 </div>
             </div>
-            
+
             <!-- Enhanced Enter Button with Multiple Layers -->
             <div class="relative">
                 <!-- Button Glow Background -->
-                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-20 bg-gradient-to-r from-blue-500/20 via-purple-500/30 to-blue-500/20 rounded-full blur-xl animate-pulse"></div>
-                
+                <div
+                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-20 bg-gradient-to-r from-blue-500/20 via-purple-500/30 to-blue-500/20 rounded-full blur-xl animate-pulse">
+                </div>
+
                 <!-- Main Button -->
-                <button onclick="enterSystem()" id="enterSystemBtn" class="group relative enhanced-btn bg-gradient-to-r from-blue-600 via-purple-600 via-pink-500 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:via-pink-600 hover:to-blue-800 text-white font-bold py-6 px-12 rounded-full text-2xl transition-all duration-500 transform hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/50 animate-pulse border-2 border-white/20">
+                <button onclick="enterSystem()" id="enterSystemBtn"
+                    class="group relative enhanced-btn bg-gradient-to-r from-blue-600 via-purple-600 via-pink-500 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:via-pink-600 hover:to-blue-800 text-white font-bold py-6 px-12 rounded-full text-2xl transition-all duration-500 transform hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/50 animate-pulse border-2 border-white/20">
                     <!-- Button Inner Glow -->
-                    <div class="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+
                     <!-- Button Content -->
                     <span class="relative z-10 flex items-center justify-center">
                         <span class="mr-4 text-3xl animate-bounce">🚪</span>
                         <span class="tracking-wide">กดเพื่อเข้าใช้งาน</span>
-                        <span class="ml-4 group-hover:translate-x-3 transition-transform duration-300 text-3xl animate-bounce" style="animation-delay: 0.5s;">→</span>
+                        <span
+                            class="ml-4 group-hover:translate-x-3 transition-transform duration-300 text-3xl animate-bounce"
+                            style="animation-delay: 0.5s;">→</span>
                     </span>
-                    
+
                     <!-- Hover Effect Overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
                 </button>
-                
+
                 <!-- Button Hint Text -->
                 <div class="mt-6 text-blue-200/60 text-sm animate-pulse" style="animation-delay: 2s;">
                     ✨ คลิกเพื่อเริ่มต้นการใช้งาน ✨
                 </div>
             </div>
-            
+
             <!-- Feature Highlights -->
             <div class="mt-12 grid md:grid-cols-3 gap-6 text-center">
-                <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 animate-pulse" style="animation-delay: 1s;">
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 animate-pulse"
+                    style="animation-delay: 1s;">
                     <div class="text-3xl mb-2">📋</div>
                     <div class="text-blue-200 font-medium">กฎครบถ้วน</div>
                 </div>
-                <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 animate-pulse" style="animation-delay: 1.5s;">
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 animate-pulse"
+                    style="animation-delay: 1.5s;">
                     <div class="text-3xl mb-2">🧮</div>
                     <div class="text-blue-200 font-medium">คำนวณอัตโนมัติ</div>
                 </div>
-                <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 animate-pulse" style="animation-delay: 2s;">
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 animate-pulse"
+                    style="animation-delay: 2s;">
                     <div class="text-3xl mb-2">⚡</div>
                     <div class="text-blue-200 font-medium">ใช้งานง่าย</div>
                 </div>
@@ -1022,23 +1142,30 @@
             <div class="text-center mb-16 relative">
                 <!-- Animated Background Elements -->
                 <div class="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div class="absolute top-10 left-10 w-20 h-20 bg-white/5 rounded-full animate-pulse glow-effect"></div>
-                    <div class="absolute top-32 right-20 w-16 h-16 bg-blue-300/10 rounded-full animate-bounce glow-effect" style="animation-delay: 0.5s;"></div>
-                    <div class="absolute bottom-20 left-1/4 w-12 h-12 bg-white/5 rounded-full animate-pulse glow-effect" style="animation-delay: 1s;"></div>
-                    <div class="absolute top-20 right-1/3 w-8 h-8 bg-blue-200/10 rounded-full animate-bounce glow-effect" style="animation-delay: 1.5s;"></div>
+                    <div class="absolute top-10 left-10 w-20 h-20 bg-white/5 rounded-full animate-pulse glow-effect">
+                    </div>
+                    <div class="absolute top-32 right-20 w-16 h-16 bg-blue-300/10 rounded-full animate-bounce glow-effect"
+                        style="animation-delay: 0.5s;"></div>
+                    <div class="absolute bottom-20 left-1/4 w-12 h-12 bg-white/5 rounded-full animate-pulse glow-effect"
+                        style="animation-delay: 1s;"></div>
+                    <div class="absolute top-20 right-1/3 w-8 h-8 bg-blue-200/10 rounded-full animate-bounce glow-effect"
+                        style="animation-delay: 1.5s;"></div>
                 </div>
 
                 <!-- Main Title with Gradient -->
                 <div class="relative z-10">
                     <div class="inline-block mb-6">
                         <div class="text-8xl mb-4 float-animation">🚔</div>
-                        <div class="w-24 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto rounded-full animate-pulse glow-effect"></div>
+                        <div
+                            class="w-24 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto rounded-full animate-pulse glow-effect">
+                        </div>
                     </div>
-                    
-                    <h1 class="text-6xl md:text-7xl font-bold bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent mb-6 leading-tight">
+
+                    <h1
+                        class="text-6xl md:text-7xl font-bold bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent mb-6 leading-tight">
                         XINTOWN POLICE
                     </h1>
-                    
+
                     <div class="max-w-2xl mx-auto">
                         <p class="text-blue-200/80 text-lg">เลือกเมนูที่ต้องการใช้งานด้านล่าง</p>
                     </div>
@@ -1048,123 +1175,174 @@
             <!-- Menu Cards Grid -->
             <div class="grid lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
                 <!-- Menu 1: กฎประเทศ -->
-                <div class="menu-card group bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 rounded-3xl shadow-2xl p-10 text-center cursor-pointer relative overflow-hidden border border-blue-200/30 backdrop-blur-sm" onclick="openExternalLink('https://docs.google.com/spreadsheets/d/1C7pI2SagKgK7cdsiJzZvtRmtlBZRYpbdhWJsrvZW74Q/edit?gid=467740329#gid=467740329')">
+                <div class="menu-card group bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 rounded-3xl shadow-2xl p-10 text-center cursor-pointer relative overflow-hidden border border-blue-200/30 backdrop-blur-sm"
+                    onclick="openExternalLink('https://docs.google.com/spreadsheets/d/1C7pI2SagKgK7cdsiJzZvtRmtlBZRYpbdhWJsrvZW74Q/edit?gid=467740329#gid=467740329')">
                     <!-- Animated Background Elements -->
                     <div class="absolute inset-0 opacity-10">
                         <div class="absolute top-6 right-6 text-8xl animate-pulse">📋</div>
-                        <div class="absolute bottom-6 left-6 text-5xl animate-bounce" style="animation-delay: 0.5s;">⚖️</div>
-                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-9xl opacity-5">🏛️</div>
+                        <div class="absolute bottom-6 left-6 text-5xl animate-bounce" style="animation-delay: 0.5s;">⚖️
+                        </div>
+                        <div
+                            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-9xl opacity-5">
+                            🏛️</div>
                     </div>
-                    
+
                     <!-- Glowing Border Effect -->
-                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400/20 via-indigo-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                    
+                    <div
+                        class="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400/20 via-indigo-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm">
+                    </div>
+
                     <!-- Content -->
                     <div class="relative z-10">
                         <!-- Icon with enhanced animation -->
                         <div class="relative mb-8">
-                            <div class="text-8xl mb-4 group-hover:scale-125 transition-all duration-500 float-animation filter drop-shadow-lg">📋</div>
-                            <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div
+                                class="text-8xl mb-4 group-hover:scale-125 transition-all duration-500 float-animation filter drop-shadow-lg">
+                                📋</div>
+                            <div
+                                class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
                         </div>
-                        
-                        <h2 class="text-3xl font-bold bg-gradient-to-r from-slate-800 via-blue-700 to-indigo-800 bg-clip-text text-transparent mb-5 group-hover:from-blue-600 group-hover:via-indigo-600 group-hover:to-purple-600 transition-all duration-300">กฎประเทศ</h2>
-                        
-                        <p class="text-slate-600 mb-8 leading-relaxed text-lg font-medium">ดูกฎหมายและระเบียบของประเทศ<br>รวมถึงข้อบังคับต่างๆ ที่สำคัญ</p>
-                        
+
+                        <h2
+                            class="text-3xl font-bold bg-gradient-to-r from-slate-800 via-blue-700 to-indigo-800 bg-clip-text text-transparent mb-5 group-hover:from-blue-600 group-hover:via-indigo-600 group-hover:to-purple-600 transition-all duration-300">
+                            กฎประเทศ</h2>
+
+                        <p class="text-slate-600 mb-8 leading-relaxed text-lg font-medium">
+                            ดูกฎหมายและระเบียบของประเทศ<br>รวมถึงข้อบังคับต่างๆ ที่สำคัญ</p>
+
                         <!-- Enhanced Action Button -->
-                        <div class="enhanced-btn bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 hover:from-blue-600 hover:via-indigo-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl inline-block transition-all duration-300 shadow-xl group-hover:shadow-2xl hover:shadow-blue-500/40 transform group-hover:-translate-y-1">
+                        <div
+                            class="enhanced-btn bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 hover:from-blue-600 hover:via-indigo-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl inline-block transition-all duration-300 shadow-xl group-hover:shadow-2xl hover:shadow-blue-500/40 transform group-hover:-translate-y-1">
                             <span class="text-base font-semibold flex items-center">
                                 <span class="mr-3 text-xl">📖</span>
                                 คลิกเพื่อดู
-                                <span class="ml-3 group-hover:translate-x-2 transition-transform duration-300 text-xl">→</span>
+                                <span
+                                    class="ml-3 group-hover:translate-x-2 transition-transform duration-300 text-xl">→</span>
                             </span>
                         </div>
-                        
+
 
                     </div>
-                    
+
                     <!-- Enhanced Hover Effect -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl">
+                    </div>
                 </div>
 
                 <!-- Menu 2: ค่าปรับ -->
-                <div class="menu-card group bg-gradient-to-br from-emerald-50 via-green-50 to-teal-100 rounded-3xl shadow-2xl p-10 text-center cursor-pointer relative overflow-hidden border border-green-200/30 backdrop-blur-sm" onclick="showPage('finePage')">
+                <div class="menu-card group bg-gradient-to-br from-emerald-50 via-green-50 to-teal-100 rounded-3xl shadow-2xl p-10 text-center cursor-pointer relative overflow-hidden border border-green-200/30 backdrop-blur-sm"
+                    onclick="showPage('finePage')">
                     <!-- Animated Background Elements -->
                     <div class="absolute inset-0 opacity-10">
                         <div class="absolute top-6 right-6 text-8xl animate-pulse">💰</div>
-                        <div class="absolute bottom-6 left-6 text-5xl animate-bounce" style="animation-delay: 0.7s;">🧮</div>
-                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-9xl opacity-5">💎</div>
+                        <div class="absolute bottom-6 left-6 text-5xl animate-bounce" style="animation-delay: 0.7s;">🧮
+                        </div>
+                        <div
+                            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-9xl opacity-5">
+                            💎</div>
                     </div>
-                    
+
                     <!-- Glowing Border Effect -->
-                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-400/20 via-green-400/20 to-teal-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                    
+                    <div
+                        class="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-400/20 via-green-400/20 to-teal-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm">
+                    </div>
+
                     <!-- Content -->
                     <div class="relative z-10">
                         <!-- Icon with enhanced animation -->
                         <div class="relative mb-8">
-                            <div class="text-8xl mb-4 group-hover:scale-125 transition-all duration-500 float-animation filter drop-shadow-lg">💰</div>
-                            <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-emerald-400 to-green-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div
+                                class="text-8xl mb-4 group-hover:scale-125 transition-all duration-500 float-animation filter drop-shadow-lg">
+                                💰</div>
+                            <div
+                                class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-emerald-400 to-green-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
                         </div>
-                        
-                        <h2 class="text-3xl font-bold bg-gradient-to-r from-slate-800 via-emerald-700 to-green-800 bg-clip-text text-transparent mb-5 group-hover:from-emerald-600 group-hover:via-green-600 group-hover:to-teal-600 transition-all duration-300">ค่าปรับ</h2>
-                        
-                        <p class="text-slate-600 mb-8 leading-relaxed text-lg font-medium">คำนวณค่าปรับและเวลาจำคุก<br>พร้อมระบบคำนวณอัตโนมัติ</p>
-                        
+
+                        <h2
+                            class="text-3xl font-bold bg-gradient-to-r from-slate-800 via-emerald-700 to-green-800 bg-clip-text text-transparent mb-5 group-hover:from-emerald-600 group-hover:via-green-600 group-hover:to-teal-600 transition-all duration-300">
+                            ค่าปรับ</h2>
+
+                        <p class="text-slate-600 mb-8 leading-relaxed text-lg font-medium">
+                            คำนวณค่าปรับและเวลาจำคุก<br>พร้อมระบบคำนวณอัตโนมัติ</p>
+
                         <!-- Enhanced Action Button -->
-                        <div class="enhanced-btn bg-gradient-to-r from-emerald-500 via-green-600 to-teal-600 hover:from-emerald-600 hover:via-green-700 hover:to-teal-700 text-white px-8 py-4 rounded-2xl inline-block transition-all duration-300 shadow-xl group-hover:shadow-2xl hover:shadow-emerald-500/40 transform group-hover:-translate-y-1">
+                        <div
+                            class="enhanced-btn bg-gradient-to-r from-emerald-500 via-green-600 to-teal-600 hover:from-emerald-600 hover:via-green-700 hover:to-teal-700 text-white px-8 py-4 rounded-2xl inline-block transition-all duration-300 shadow-xl group-hover:shadow-2xl hover:shadow-emerald-500/40 transform group-hover:-translate-y-1">
                             <span class="text-base font-semibold flex items-center">
                                 <span class="mr-3 text-xl">🚀</span>
                                 เข้าใช้งาน
-                                <span class="ml-3 group-hover:translate-x-2 transition-transform duration-300 text-xl">→</span>
+                                <span
+                                    class="ml-3 group-hover:translate-x-2 transition-transform duration-300 text-xl">→</span>
                             </span>
                         </div>
-                        
+
 
                     </div>
-                    
+
                     <!-- Enhanced Hover Effect -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-green-500/10 to-teal-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-green-500/10 to-teal-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl">
+                    </div>
                 </div>
 
                 <!-- Menu 3: กฎตำรวจ -->
-                <div class="menu-card group bg-gradient-to-br from-purple-50 via-pink-50 to-rose-100 rounded-3xl shadow-2xl p-10 text-center cursor-pointer relative overflow-hidden border border-purple-200/30 backdrop-blur-sm" onclick="openExternalLink('https://docs.google.com/spreadsheets/d/1pn4xMhuGm7IwTWLBw1t1mHRyHbO9h21eLqsn-1xdFJo/edit?gid=0#gid=0')">
+                <div class="menu-card group bg-gradient-to-br from-purple-50 via-pink-50 to-rose-100 rounded-3xl shadow-2xl p-10 text-center cursor-pointer relative overflow-hidden border border-purple-200/30 backdrop-blur-sm"
+                    onclick="openExternalLink('https://docs.google.com/spreadsheets/d/1pn4xMhuGm7IwTWLBw1t1mHRyHbO9h21eLqsn-1xdFJo/edit?gid=0#gid=0')">
                     <!-- Animated Background Elements -->
                     <div class="absolute inset-0 opacity-10">
                         <div class="absolute top-6 right-6 text-8xl animate-pulse">👮‍♂️</div>
-                        <div class="absolute bottom-6 left-6 text-5xl animate-bounce" style="animation-delay: 1s;">🛡️</div>
-                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-9xl opacity-5">🚔</div>
+                        <div class="absolute bottom-6 left-6 text-5xl animate-bounce" style="animation-delay: 1s;">🛡️
+                        </div>
+                        <div
+                            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-9xl opacity-5">
+                            🚔</div>
                     </div>
-                    
+
                     <!-- Glowing Border Effect -->
-                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-400/20 via-pink-400/20 to-rose-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                    
+                    <div
+                        class="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-400/20 via-pink-400/20 to-rose-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm">
+                    </div>
+
                     <!-- Content -->
                     <div class="relative z-10">
                         <!-- Icon with enhanced animation -->
                         <div class="relative mb-8">
-                            <div class="text-8xl mb-4 group-hover:scale-125 transition-all duration-500 float-animation filter drop-shadow-lg">👮‍♂️</div>
-                            <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div
+                                class="text-8xl mb-4 group-hover:scale-125 transition-all duration-500 float-animation filter drop-shadow-lg">
+                                👮‍♂️</div>
+                            <div
+                                class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
                         </div>
-                        
-                        <h2 class="text-3xl font-bold bg-gradient-to-r from-slate-800 via-purple-700 to-pink-800 bg-clip-text text-transparent mb-5 group-hover:from-purple-600 group-hover:via-pink-600 group-hover:to-rose-600 transition-all duration-300">กฎตำรวจ</h2>
-                        
-                        <p class="text-slate-600 mb-8 leading-relaxed text-lg font-medium">กฎระเบียบและข้อปฏิบัติตำรวจ<br>สำหรับเจ้าหน้าที่ผู้ปฏิบัติงาน</p>
-                        
+
+                        <h2
+                            class="text-3xl font-bold bg-gradient-to-r from-slate-800 via-purple-700 to-pink-800 bg-clip-text text-transparent mb-5 group-hover:from-purple-600 group-hover:via-pink-600 group-hover:to-rose-600 transition-all duration-300">
+                            กฎตำรวจ</h2>
+
+                        <p class="text-slate-600 mb-8 leading-relaxed text-lg font-medium">
+                            กฎระเบียบและข้อปฏิบัติตำรวจ<br>สำหรับเจ้าหน้าที่ผู้ปฏิบัติงาน</p>
+
                         <!-- Enhanced Action Button -->
-                        <div class="enhanced-btn bg-gradient-to-r from-purple-500 via-pink-600 to-rose-600 hover:from-purple-600 hover:via-pink-700 hover:to-rose-700 text-white px-8 py-4 rounded-2xl inline-block transition-all duration-300 shadow-xl group-hover:shadow-2xl hover:shadow-purple-500/40 transform group-hover:-translate-y-1">
+                        <div
+                            class="enhanced-btn bg-gradient-to-r from-purple-500 via-pink-600 to-rose-600 hover:from-purple-600 hover:via-pink-700 hover:to-rose-700 text-white px-8 py-4 rounded-2xl inline-block transition-all duration-300 shadow-xl group-hover:shadow-2xl hover:shadow-purple-500/40 transform group-hover:-translate-y-1">
                             <span class="text-base font-semibold flex items-center">
                                 <span class="mr-3 text-xl">👁️</span>
                                 คลิกเพื่อดู
-                                <span class="ml-3 group-hover:translate-x-2 transition-transform duration-300 text-xl">→</span>
+                                <span
+                                    class="ml-3 group-hover:translate-x-2 transition-transform duration-300 text-xl">→</span>
                             </span>
                         </div>
-                        
+
 
                     </div>
-                    
+
                     <!-- Enhanced Hover Effect -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-rose-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-rose-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl">
+                    </div>
                 </div>
             </div>
         </div>
@@ -1172,7 +1350,8 @@
         <!-- Fine Calculation Page -->
         <div id="finePage" class="page-content hidden">
             <div class="text-center mb-8">
-                <h1 class="text-4xl font-bold text-white mb-2 float-animation">💰 XINTOWN POLICE - ระบบคำนวณค่าปรับและจำคุก </h1>
+                <h1 class="text-4xl font-bold text-white mb-2 float-animation">💰 XINTOWN POLICE -
+                    ระบบคำนวณค่าปรับและจำคุก </h1>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-8">
@@ -1181,16 +1360,18 @@
                     <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                         ⚖️ เลือกข้อหา
                     </h2>
-                    
+
                     <!-- Search Box -->
                     <div class="mb-4">
                         <div class="relative">
-                            <input type="text" id="searchInput" placeholder="🔍 ค้นหาข้อหา... (เช่น หลบหนี, ครอบครอง, ทำร้าย)" 
-                                   class="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all glow-effect">
+                            <input type="text" id="searchInput"
+                                placeholder="🔍 ค้นหาข้อหา... (เช่น หลบหนี, ครอบครอง, ทำร้าย)"
+                                class="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all glow-effect">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <span class="text-gray-400">🔍</span>
                             </div>
-                            <button id="clearSearch" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 hidden">
+                            <button id="clearSearch"
+                                class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 hidden">
                                 <span class="text-lg">✕</span>
                             </button>
                         </div>
@@ -1201,13 +1382,19 @@
 
                     <!-- Category Tabs -->
                     <div class="flex space-x-2 mb-4 border-b">
-                        <button class="category-tab active px-4 py-2 font-medium text-blue-600 border-b-2 border-blue-600 enhanced-btn" data-category="general">
+                        <button
+                            class="category-tab active px-4 py-2 font-medium text-blue-600 border-b-2 border-blue-600 enhanced-btn"
+                            data-category="general">
                             ค่าปรับปกติ
                         </button>
-                        <button class="category-tab px-4 py-2 font-medium text-gray-600 hover:text-blue-600 enhanced-btn" data-category="illegal">
+                        <button
+                            class="category-tab px-4 py-2 font-medium text-gray-600 hover:text-blue-600 enhanced-btn"
+                            data-category="illegal">
                             ของผิดกฎหมาย
                         </button>
-                        <button class="category-tab px-4 py-2 font-medium text-gray-600 hover:text-blue-600 enhanced-btn" data-category="serious">
+                        <button
+                            class="category-tab px-4 py-2 font-medium text-gray-600 hover:text-blue-600 enhanced-btn"
+                            data-category="serious">
                             คดีแดง
                         </button>
                     </div>
@@ -1216,8 +1403,9 @@
                     <div id="chargesList" class="space-y-2 max-h-96 overflow-y-auto">
                         <!-- General Charges -->
                         <div class="category-content" data-category="general">
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn" 
-                                 onclick="toggleCharge('fight', 10000, 10)" data-charge="fight" data-fine="10000" data-jail="10" data-keywords="ทะเลาะ วิวาท ต่อสู้ ชก">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn"
+                                onclick="toggleCharge('fight', 10000, 10)" data-charge="fight" data-fine="10000"
+                                data-jail="10" data-keywords="ทะเลาะ วิวาท ต่อสู้ ชก">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">🥊 ทะเลาะวิวาท</h4>
@@ -1230,8 +1418,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn" 
-                                 onclick="toggleCharge('disturbance', 5000, 5)" data-charge="disturbance" data-fine="5000" data-jail="5" data-keywords="วุ่นวาย รบกวน ส่งเสียงดัง">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn"
+                                onclick="toggleCharge('disturbance', 5000, 5)" data-charge="disturbance"
+                                data-fine="5000" data-jail="5" data-keywords="วุ่นวาย รบกวน ส่งเสียงดัง">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">🔊 สร้างความวุ่นวาย ทุกรูปแบบ</h4>
@@ -1246,8 +1435,9 @@
 
 
 
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn" 
-                                 onclick="toggleCharge('mask', 3000, 5)" data-charge="mask" data-fine="3000" data-jail="5" data-keywords="หน้ากาก ปิดบัง ใบหน้า">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn"
+                                onclick="toggleCharge('mask', 3000, 5)" data-charge="mask" data-fine="3000"
+                                data-jail="5" data-keywords="หน้ากาก ปิดบัง ใบหน้า">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">🎭 ใส่หน้ากาก หรือปิดบังใบหน้า</h4>
@@ -1260,8 +1450,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn" 
-                                 onclick="toggleCharge('assault', 20000, 10)" data-charge="assault" data-fine="20000" data-jail="10" data-keywords="ทำร้าย ร่างกาย เจตนา ประชาชน">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn"
+                                onclick="toggleCharge('assault', 20000, 10)" data-charge="assault" data-fine="20000"
+                                data-jail="10" data-keywords="ทำร้าย ร่างกาย เจตนา ประชาชน">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">👊 เจตนาทำร้ายร่างกาย - ประชาชน</h4>
@@ -1274,8 +1465,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn" 
-                                 onclick="toggleCharge('kidnap', 10000, 10)" data-charge="kidnap" data-fine="10000" data-jail="10" data-keywords="ลักพาตัว จับตัว ไม่ยินยอม">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn"
+                                onclick="toggleCharge('kidnap', 10000, 10)" data-charge="kidnap" data-fine="10000"
+                                data-jail="10" data-keywords="ลักพาตัว จับตัว ไม่ยินยอม">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">👥 ลักพาตัว</h4>
@@ -1288,8 +1480,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-yellow-50 hover:bg-yellow-100 p-3 rounded-lg cursor-pointer border border-yellow-200 transition-all enhanced-btn" 
-                                 onclick="toggleCharge('outOfCity', 0, 0)" data-charge="outOfCity" data-fine="0" data-jail="0" data-special="X2 ของคดี" data-keywords="ออกนอกเมือง นอกเขต">
+                            <div class="charge-item bg-yellow-50 hover:bg-yellow-100 p-3 rounded-lg cursor-pointer border border-yellow-200 transition-all enhanced-btn"
+                                onclick="toggleCharge('outOfCity', 0, 0)" data-charge="outOfCity" data-fine="0"
+                                data-jail="0" data-special="X2 ของคดี" data-keywords="ออกนอกเมือง นอกเขต">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">🏙️ ออกนอกเมือง</h4>
@@ -1302,8 +1495,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-yellow-50 hover:bg-yellow-100 p-3 rounded-lg cursor-pointer border border-yellow-200 transition-all enhanced-btn" 
-                                 onclick="toggleCharge('conspiracy', 0, 0)" data-charge="conspiracy" data-fine="0" data-jail="0" data-special="ตามคดีหลัก" data-keywords="สมรู้ร่วมคิด ร่วมกัน ร่วมมือ">
+                            <div class="charge-item bg-yellow-50 hover:bg-yellow-100 p-3 rounded-lg cursor-pointer border border-yellow-200 transition-all enhanced-btn"
+                                onclick="toggleCharge('conspiracy', 0, 0)" data-charge="conspiracy" data-fine="0"
+                                data-jail="0" data-special="ตามคดีหลัก" data-keywords="สมรู้ร่วมคิด ร่วมกัน ร่วมมือ">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">🤝 สมรู้ร่วมคิด/ร่วมกันกระทำความผิด</h4>
@@ -1316,8 +1510,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn" 
-                                 onclick="toggleCharge('showWeapon', 5000, 0)" data-charge="showWeapon" data-fine="5000" data-jail="0" data-keywords="แสดงอาวุธ อาวุธ สาธารณะ">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn"
+                                onclick="toggleCharge('showWeapon', 5000, 0)" data-charge="showWeapon" data-fine="5000"
+                                data-jail="0" data-keywords="แสดงอาวุธ อาวุธ สาธารณะ">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">🔫 แสดงอาวุธในที่สาธารณะ</h4>
@@ -1329,8 +1524,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn" 
-                                 onclick="toggleCharge('riskArea', 2000, 3)" data-charge="riskArea" data-fine="2000" data-jail="3" data-keywords="พื้นที่ สุ่มเสี่ยง เสี่ยงอันตราย">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn"
+                                onclick="toggleCharge('riskArea', 2000, 3)" data-charge="riskArea" data-fine="2000"
+                                data-jail="3" data-keywords="พื้นที่ สุ่มเสี่ยง เสี่ยงอันตราย">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">⚠️ พื้นที่สุ่มเสี่ยง</h4>
@@ -1343,8 +1539,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn" 
-                                 onclick="toggleCharge('escapeArrest', 3000, 5)" data-charge="escapeArrest" data-fine="3000" data-jail="5" data-keywords="หลบหนี จับกุม หนีตำรวจ">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn"
+                                onclick="toggleCharge('escapeArrest', 3000, 5)" data-charge="escapeArrest"
+                                data-fine="3000" data-jail="5" data-keywords="หลบหนี จับกุม หนีตำรวจ">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">🏃‍♂️ หลบหนีการจับกุม</h4>
@@ -1357,8 +1554,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn" 
-                                 onclick="toggleCharge('distribute', 8000, 5)" data-charge="distribute" data-fine="8000" data-jail="5" data-keywords="ยัดเยียด แจกจ่าย สิ่งของผิดกฎหมาย">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn"
+                                onclick="toggleCharge('distribute', 8000, 5)" data-charge="distribute" data-fine="8000"
+                                data-jail="5" data-keywords="ยัดเยียด แจกจ่าย สิ่งของผิดกฎหมาย">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">🎁 ยัดเยียดสิ่งของผิดกฎหมายให้ผู้อื่น</h4>
@@ -1371,8 +1569,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn" 
-                                 onclick="toggleCharge('vehicleTheft', 10000, 10)" data-charge="vehicleTheft" data-fine="10000" data-jail="10" data-keywords="โจรกรรม ยานพาหนะ ขโมยรถ มอเตอร์ไซค์">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn"
+                                onclick="toggleCharge('vehicleTheft', 10000, 10)" data-charge="vehicleTheft"
+                                data-fine="10000" data-jail="10" data-keywords="โจรกรรม ยานพาหนะ ขโมยรถ มอเตอร์ไซค์">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">🚙 โจรกรรมยานพาหนะ</h4>
@@ -1385,8 +1584,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn" 
-                                 onclick="toggleCharge('embezzlement', 15000, 20)" data-charge="embezzlement" data-fine="15000" data-jail="20" data-keywords="ยักยอก ทรัพย์สิน เงิน">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn"
+                                onclick="toggleCharge('embezzlement', 15000, 20)" data-charge="embezzlement"
+                                data-fine="15000" data-jail="20" data-keywords="ยักยอก ทรัพย์สิน เงิน">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">💸 ยักยอกทรัพย์</h4>
@@ -1399,8 +1599,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn" 
-                                 onclick="toggleCharge('vandalism', 5000, 5)" data-charge="vandalism" data-fine="5000" data-jail="5" data-keywords="ทำลาย ทรัพย์สิน ผู้อื่น">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn"
+                                onclick="toggleCharge('vandalism', 5000, 5)" data-charge="vandalism" data-fine="5000"
+                                data-jail="5" data-keywords="ทำลาย ทรัพย์สิน ผู้อื่น">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">💥 ทำลายทรัพย์สินผู้อื่น</h4>
@@ -1413,8 +1614,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn" 
-                                 onclick="toggleCharge('trespassing', 50000, 15)" data-charge="trespassing" data-fine="50000" data-jail="15" data-keywords="บุกรุก เคหะสถาน บ้าน ที่อยู่อาศัย">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn"
+                                onclick="toggleCharge('trespassing', 50000, 15)" data-charge="trespassing"
+                                data-fine="50000" data-jail="15" data-keywords="บุกรุก เคหะสถาน บ้าน ที่อยู่อาศัย">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">🏠 บุกรุกเคหะสถาน / บุกรุกบ้าน</h4>
@@ -1427,8 +1629,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn" 
-                                 onclick="toggleCharge('showIllegal', 5000, 8)" data-charge="showIllegal" data-fine="5000" data-jail="8" data-keywords="โชว์ ของงานดำ เจ้าหน้าที่ แสดง ผิดกฎหมาย">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn"
+                                onclick="toggleCharge('showIllegal', 5000, 8)" data-charge="showIllegal"
+                                data-fine="5000" data-jail="8" data-keywords="โชว์ ของงานดำ เจ้าหน้าที่ แสดง ผิดกฎหมาย">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">👁️ โชว์ของงานดำต่อหน้าเจ้าหน้าที่</h4>
@@ -1441,8 +1644,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-yellow-50 hover:bg-yellow-100 p-3 rounded-lg cursor-pointer border border-yellow-200 transition-all enhanced-btn" 
-                                 onclick="toggleCharge('darkCar', 0, 0)" data-charge="darkCar" data-fine="0" data-jail="0" data-special="X4 ของคดี(ค่าปรับ)" data-keywords="รถทึบ งานดำ กระจกทึบ">
+                            <div class="charge-item bg-yellow-50 hover:bg-yellow-100 p-3 rounded-lg cursor-pointer border border-yellow-200 transition-all enhanced-btn"
+                                onclick="toggleCharge('darkCar', 0, 0)" data-charge="darkCar" data-fine="0"
+                                data-jail="0" data-special="X4 ของคดี(ค่าปรับ)" data-keywords="รถทึบ งานดำ กระจกทึบ">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">🚙 นำรถทึบมาทำงานดำ</h4>
@@ -1455,8 +1659,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-yellow-50 hover:bg-yellow-100 p-3 rounded-lg cursor-pointer border border-yellow-200 transition-all enhanced-btn" 
-                                 onclick="toggleCharge('mountain', 0, 0)" data-charge="mountain" data-fine="0" data-jail="0" data-special="X4 ของคดี(ค่าปรับ)" data-keywords="ขึ้นเขา เขา ภูเขา">
+                            <div class="charge-item bg-yellow-50 hover:bg-yellow-100 p-3 rounded-lg cursor-pointer border border-yellow-200 transition-all enhanced-btn"
+                                onclick="toggleCharge('mountain', 0, 0)" data-charge="mountain" data-fine="0"
+                                data-jail="0" data-special="X4 ของคดี(ค่าปรับ)" data-keywords="ขึ้นเขา เขา ภูเขา">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">⛰️ ขึ้นเขา</h4>
@@ -1469,8 +1674,10 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-yellow-50 hover:bg-yellow-100 p-3 rounded-lg cursor-pointer border border-yellow-200 transition-all enhanced-btn" 
-                                 onclick="toggleCharge('beforeServerReset', 0, 0)" data-charge="beforeServerReset" data-fine="0" data-jail="0" data-special="X10 ของคดี(ค่าปรับ)" data-keywords="ทำงานดำ ก่อนหลัง เซิฟรี รีเซ็ต">
+                            <div class="charge-item bg-yellow-50 hover:bg-yellow-100 p-3 rounded-lg cursor-pointer border border-yellow-200 transition-all enhanced-btn"
+                                onclick="toggleCharge('beforeServerReset', 0, 0)" data-charge="beforeServerReset"
+                                data-fine="0" data-jail="0" data-special="X10 ของคดี(ค่าปรับ)"
+                                data-keywords="ทำงานดำ ก่อนหลัง เซิฟรี รีเซ็ต">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-gray-800">🔄 ทำงานดำก่อนหลังเซิฟรี 10 นาที</h4>
@@ -1486,8 +1693,8 @@
 
                         <!-- Illegal Items -->
                         <div class="category-content hidden" data-category="illegal">
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg border transition-all enhanced-btn" 
-                                 data-charge="cement" data-fine="2000" data-jail="3" data-keywords="ปูน ครอบครอง">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg border transition-all enhanced-btn"
+                                data-charge="cement" data-fine="2000" data-jail="3" data-keywords="ปูน ครอบครอง">
                                 <div class="flex justify-between items-center mb-2">
                                     <div>
                                         <h4 class="font-medium text-gray-800">🏗️ ครอบครองปูน</h4>
@@ -1500,13 +1707,16 @@
                                 </div>
                                 <div class="flex items-center space-x-2">
                                     <label class="text-sm text-gray-700">จำนวน:</label>
-                                    <input type="number" min="1" value="1" class="quantity-input w-16 px-2 py-1 border border-gray-300 rounded text-sm" data-charge="cement">
-                                    <button onclick="handleIllegalChargeButton('cement')" class="enhanced-btn bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">เพิ่ม</button>
+                                    <input type="number" min="1" value="1"
+                                        class="quantity-input w-16 px-2 py-1 border border-gray-300 rounded text-sm"
+                                        data-charge="cement">
+                                    <button onclick="handleIllegalChargeButton('cement')"
+                                        class="enhanced-btn bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">เพิ่ม</button>
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg border transition-all enhanced-btn" 
-                                 data-charge="wire" data-fine="2000" data-jail="3" data-keywords="สายไฟ ครอบครอง">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg border transition-all enhanced-btn"
+                                data-charge="wire" data-fine="2000" data-jail="3" data-keywords="สายไฟ ครอบครอง">
                                 <div class="flex justify-between items-center mb-2">
                                     <div>
                                         <h4 class="font-medium text-gray-800">⚡ ครอบครองสายไฟ</h4>
@@ -1519,13 +1729,17 @@
                                 </div>
                                 <div class="flex items-center space-x-2">
                                     <label class="text-sm text-gray-700">จำนวน:</label>
-                                    <input type="number" min="1" value="1" class="quantity-input w-16 px-2 py-1 border border-gray-300 rounded text-sm" data-charge="wire">
-                                    <button onclick="handleIllegalChargeButton('wire')" class="enhanced-btn bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">เพิ่ม</button>
+                                    <input type="number" min="1" value="1"
+                                        class="quantity-input w-16 px-2 py-1 border border-gray-300 rounded text-sm"
+                                        data-charge="wire">
+                                    <button onclick="handleIllegalChargeButton('wire')"
+                                        class="enhanced-btn bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">เพิ่ม</button>
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg border transition-all enhanced-btn" 
-                                 data-charge="illegalMoney" data-fine="0" data-jail="5" data-special="เงินแดง X2" data-keywords="เงินแดง เงินผิดกฎหมาย ครอบครอง">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg border transition-all enhanced-btn"
+                                data-charge="illegalMoney" data-fine="0" data-jail="5" data-special="เงินแดง X2"
+                                data-keywords="เงินแดง เงินผิดกฎหมาย ครอบครอง">
                                 <div class="flex justify-between items-center mb-2">
                                     <div>
                                         <h4 class="font-medium text-gray-800">💸 ครอบครองเงินผิดกฎหมาย</h4>
@@ -1538,13 +1752,17 @@
                                 </div>
                                 <div class="flex items-center space-x-2">
                                     <label class="text-sm text-gray-700">จำนวนเงินแดง:</label>
-                                    <input type="number" min="1" value="1" class="quantity-input w-20 px-2 py-1 border border-gray-300 rounded text-sm" data-charge="illegalMoney">
-                                    <button onclick="handleIllegalChargeButton('illegalMoney')" class="enhanced-btn bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">เพิ่ม</button>
+                                    <input type="number" min="1" value="1"
+                                        class="quantity-input w-20 px-2 py-1 border border-gray-300 rounded text-sm"
+                                        data-charge="illegalMoney">
+                                    <button onclick="handleIllegalChargeButton('illegalMoney')"
+                                        class="enhanced-btn bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">เพิ่ม</button>
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg border transition-all enhanced-btn" 
-                                 data-charge="capsules" data-fine="3000" data-jail="5" data-keywords="capsule blue red green ครอบครอง">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg border transition-all enhanced-btn"
+                                data-charge="capsules" data-fine="3000" data-jail="5"
+                                data-keywords="capsule blue red green ครอบครอง">
                                 <div class="flex justify-between items-center mb-2">
                                     <div>
                                         <h4 class="font-medium text-gray-800">💊 ครอบครอง Capsule Blue, Red, Green</h4>
@@ -1557,13 +1775,17 @@
                                 </div>
                                 <div class="flex items-center space-x-2">
                                     <label class="text-sm text-gray-700">จำนวน:</label>
-                                    <input type="number" min="1" value="1" class="quantity-input w-16 px-2 py-1 border border-gray-300 rounded text-sm" data-charge="capsules">
-                                    <button onclick="handleIllegalChargeButton('capsules')" class="enhanced-btn bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">เพิ่ม</button>
+                                    <input type="number" min="1" value="1"
+                                        class="quantity-input w-16 px-2 py-1 border border-gray-300 rounded text-sm"
+                                        data-charge="capsules">
+                                    <button onclick="handleIllegalChargeButton('capsules')"
+                                        class="enhanced-btn bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">เพิ่ม</button>
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg border transition-all enhanced-btn" 
-                                 data-charge="lockpick" data-fine="5000" data-jail="10" data-keywords="lockpick งัดแงะ อุปกรณ์ ครอบครอง">
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg border transition-all enhanced-btn"
+                                data-charge="lockpick" data-fine="5000" data-jail="10"
+                                data-keywords="lockpick งัดแงะ อุปกรณ์ ครอบครอง">
                                 <div class="flex justify-between items-center mb-2">
                                     <div>
                                         <h4 class="font-medium text-gray-800">🔓 ครอบครอง Lockpick</h4>
@@ -1576,8 +1798,11 @@
                                 </div>
                                 <div class="flex items-center space-x-2">
                                     <label class="text-sm text-gray-700">จำนวน:</label>
-                                    <input type="number" min="1" value="1" class="quantity-input w-16 px-2 py-1 border border-gray-300 rounded text-sm" data-charge="lockpick">
-                                    <button onclick="handleIllegalChargeButton('lockpick')" class="enhanced-btn bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">เพิ่ม</button>
+                                    <input type="number" min="1" value="1"
+                                        class="quantity-input w-16 px-2 py-1 border border-gray-300 rounded text-sm"
+                                        data-charge="lockpick">
+                                    <button onclick="handleIllegalChargeButton('lockpick')"
+                                        class="enhanced-btn bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm">เพิ่ม</button>
                                 </div>
                             </div>
 
@@ -1586,8 +1811,10 @@
 
                         <!-- Serious Crimes -->
                         <div class="category-content hidden" data-category="serious">
-                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn" 
-                                 onclick="toggleCharge('noCooperation', 30000, 10)" data-charge="noCooperation" data-fine="30000" data-jail="10" data-keywords="ไม่ให้ความร่วมมือ เจ้าหน้าที่ ไม่ร่วมมือ">
+                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn"
+                                onclick="toggleCharge('noCooperation', 30000, 10)" data-charge="noCooperation"
+                                data-fine="30000" data-jail="10"
+                                data-keywords="ไม่ให้ความร่วมมือ เจ้าหน้าที่ ไม่ร่วมมือ">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-red-800">❌ ไม่ให้ความร่วมมือกับเจ้าหน้าที่</h4>
@@ -1600,8 +1827,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn" 
-                                 onclick="toggleCharge('stealGovCar', 70000, 20)" data-charge="stealGovCar" data-fine="70000" data-jail="20" data-keywords="ขโมยรถ เจ้าหน้าที่ รถราชการ">
+                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn"
+                                onclick="toggleCharge('stealGovCar', 70000, 20)" data-charge="stealGovCar"
+                                data-fine="70000" data-jail="20" data-keywords="ขโมยรถ เจ้าหน้าที่ รถราชการ">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-red-800">🚨 พยายามขโมยรถเจ้าหน้าที่</h4>
@@ -1614,8 +1842,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn" 
-                                 onclick="toggleCharge('disturbOfficer', 120000, 10)" data-charge="disturbOfficer" data-fine="120000" data-jail="10" data-keywords="ก่อกวน เจ้าหน้าที่ ขัดขวาง">
+                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn"
+                                onclick="toggleCharge('disturbOfficer', 120000, 10)" data-charge="disturbOfficer"
+                                data-fine="120000" data-jail="10" data-keywords="ก่อกวน เจ้าหน้าที่ ขัดขวาง">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-red-800">🚧 ก่อกวนเจ้าหน้าที่</h4>
@@ -1630,8 +1859,9 @@
 
 
 
-                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn" 
-                                 onclick="toggleCharge('disturbGovArea', 80000, 10)" data-charge="disturbGovArea" data-fine="80000" data-jail="10" data-keywords="ก่อเหตุ สถานที่ราชการ หน่วยงาน">
+                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn"
+                                onclick="toggleCharge('disturbGovArea', 80000, 10)" data-charge="disturbGovArea"
+                                data-fine="80000" data-jail="10" data-keywords="ก่อเหตุ สถานที่ราชการ หน่วยงาน">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-red-800">🏛️ ก่อเหตุบริเวณสถานที่ราชการ</h4>
@@ -1644,11 +1874,14 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn" 
-                                 onclick="toggleCharge('impersonateOfficer', 80000, 15)" data-charge="impersonateOfficer" data-fine="80000" data-jail="15" data-keywords="แอบอ้าง เป็นหน่วยงาน แต่งกาย ปลอมแปลง เจ้าหน้าที่">
+                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn"
+                                onclick="toggleCharge('impersonateOfficer', 80000, 15)" data-charge="impersonateOfficer"
+                                data-fine="80000" data-jail="15"
+                                data-keywords="แอบอ้าง เป็นหน่วยงาน แต่งกาย ปลอมแปลง เจ้าหน้าที่">
                                 <div class="flex justify-between items-center">
                                     <div>
-                                        <h4 class="font-medium text-red-800">🥸 แอบอ้างเป็นหน่วยงานหรือแต่งกายเป็นหน่วยงาน</h4>
+                                        <h4 class="font-medium text-red-800">🥸
+                                            แอบอ้างเป็นหน่วยงานหรือแต่งกายเป็นหน่วยงาน</h4>
                                         <p class="text-sm text-red-600">การปลอมแปลงตัวเป็นเจ้าหน้าที่</p>
                                     </div>
                                     <div class="text-right text-sm">
@@ -1658,8 +1891,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn" 
-                                 onclick="toggleCharge('falseReport', 20000, 10)" data-charge="falseReport" data-fine="20000" data-jail="10" data-keywords="แจ้งความเท็จ ให้การเท็จ ข้อมูลเท็จ">
+                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn"
+                                onclick="toggleCharge('falseReport', 20000, 10)" data-charge="falseReport"
+                                data-fine="20000" data-jail="10" data-keywords="แจ้งความเท็จ ให้การเท็จ ข้อมูลเท็จ">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-red-800">🗣️ แจ้งความเท็จ หรือให้การเท็จ</h4>
@@ -1672,8 +1906,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn" 
-                                 onclick="toggleCharge('assaultOfficer', 100000, 30)" data-charge="assaultOfficer" data-fine="100000" data-jail="30" data-keywords="ทำร้าย ร่างกาย เจ้าหน้าที่ รัฐ">
+                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn"
+                                onclick="toggleCharge('assaultOfficer', 100000, 30)" data-charge="assaultOfficer"
+                                data-fine="100000" data-jail="30" data-keywords="ทำร้าย ร่างกาย เจ้าหน้าที่ รัฐ">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-red-800">🤜 ทำร้ายร่างกายเจ้าหน้าที่</h4>
@@ -1686,8 +1921,10 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn" 
-                                 onclick="toggleCharge('intentAssaultOfficer', 20000, 10)" data-charge="intentAssaultOfficer" data-fine="20000" data-jail="10" data-keywords="เจตนา ทำร้าย ร่างกาย">
+                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn"
+                                onclick="toggleCharge('intentAssaultOfficer', 20000, 10)"
+                                data-charge="intentAssaultOfficer" data-fine="20000" data-jail="10"
+                                data-keywords="เจตนา ทำร้าย ร่างกาย">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-red-800">💢 เจตนาทำร้ายร่างกาย</h4>
@@ -1700,8 +1937,9 @@
                                 </div>
                             </div>
 
-                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn" 
-                                 onclick="toggleCharge('embezzlementRed', 15000, 20)" data-charge="embezzlementRed" data-fine="15000" data-jail="20" data-keywords="ยักยอก ทรัพย์ เงิน">
+                            <div class="charge-item bg-red-50 hover:bg-red-100 p-3 rounded-lg cursor-pointer border border-red-200 transition-all enhanced-btn"
+                                onclick="toggleCharge('embezzlementRed', 15000, 20)" data-charge="embezzlementRed"
+                                data-fine="15000" data-jail="20" data-keywords="ยักยอก ทรัพย์ เงิน">
                                 <div class="flex justify-between items-center">
                                     <div>
                                         <h4 class="font-medium text-red-800">💸 ยักยอกทรัพย์</h4>
@@ -1726,7 +1964,8 @@
                     <!-- Selected Charges -->
                     <div class="mb-6">
                         <h3 class="text-lg font-semibold text-gray-700 mb-3">ข้อหาที่เลือก:</h3>
-                        <div id="selectedCharges" class="space-y-2 min-h-[60px] bg-gray-50 rounded-lg p-4 max-h-40 overflow-y-auto">
+                        <div id="selectedCharges"
+                            class="space-y-2 min-h-[60px] bg-gray-50 rounded-lg p-4 max-h-40 overflow-y-auto">
                             <p class="text-gray-500 italic">ยังไม่ได้เลือกข้อหา</p>
                         </div>
                     </div>
@@ -1780,17 +2019,20 @@
 
                     <!-- Action Buttons -->
                     <div class="flex space-x-2">
-                        <button onclick="calculateCharges()" id="calculateBtn" class="enhanced-btn flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors text-sm shadow-lg hover:shadow-blue-500/50">
+                        <button onclick="calculateCharges()" id="calculateBtn"
+                            class="enhanced-btn flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors text-sm shadow-lg hover:shadow-blue-500/50">
                             📊 คำนวณ
                         </button>
-                        <button onclick="clearAllCharges()" id="clearBtn" class="enhanced-btn bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors text-sm shadow-lg">
+                        <button onclick="clearAllCharges()" id="clearBtn"
+                            class="enhanced-btn bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors text-sm shadow-lg">
                             🗑️ ล้าง
                         </button>
                     </div>
-                    
+
                     <!-- Copy Button (shown after calculation) -->
                     <div id="copyButtonContainer" class="hidden mt-3">
-                        <button onclick="copyCharges()" id="copyChargesBtn" class="enhanced-btn w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors text-sm shadow-lg hover:shadow-purple-500/50">
+                        <button onclick="copyCharges()" id="copyChargesBtn"
+                            class="enhanced-btn w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors text-sm shadow-lg hover:shadow-purple-500/50">
                             📋 คัดลอกข้อหา
                         </button>
                     </div>
@@ -1812,7 +2054,8 @@
             </div>
             <!-- Back Button -->
             <div class="text-center mt-8">
-                <button onclick="showPage('homePage')" class="enhanced-btn bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-lg transition-colors backdrop-blur-md shadow-lg hover:shadow-white/20">
+                <button onclick="showPage('homePage')"
+                    class="enhanced-btn bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-lg transition-colors backdrop-blur-md shadow-lg hover:shadow-white/20">
                     ← กลับหน้าหลัก
                 </button>
             </div>
@@ -1830,7 +2073,7 @@
                     <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center justify-center">
                         🕐 คำนวณเวลาเข้าเวร
                     </h2>
-                    
+
                     <!-- Time Input Section -->
                     <div class="grid md:grid-cols-2 gap-6 mb-6">
                         <!-- Start Time -->
@@ -1838,23 +2081,28 @@
                             <label class="block text-sm font-semibold text-blue-700 mb-2">
                                 🟢 เวลาเริ่มต้น (24 ชั่วโมง)
                             </label>
-                            <input type="text" id="startTime" placeholder="เช่น 16:00 หรือ 09:30" class="w-full px-3 py-2 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg" maxlength="5">
+                            <input type="text" id="startTime" placeholder="เช่น 16:00 หรือ 09:30"
+                                class="w-full px-3 py-2 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg"
+                                maxlength="5">
 
                         </div>
-                        
+
                         <!-- End Time -->
                         <div class="bg-red-50 rounded-lg p-4 border-l-4 border-red-500">
                             <label class="block text-sm font-semibold text-red-700 mb-2">
                                 🔴 เวลาสิ้นสุด (24 ชั่วโมง)
                             </label>
-                            <input type="text" id="endTime" placeholder="เช่น 22:00 หรือ 14:15" class="w-full px-3 py-2 border border-red-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-lg" maxlength="5">
+                            <input type="text" id="endTime" placeholder="เช่น 22:00 หรือ 14:15"
+                                class="w-full px-3 py-2 border border-red-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 text-lg"
+                                maxlength="5">
 
                         </div>
                     </div>
 
                     <!-- Calculate Button -->
                     <div class="text-center mb-6">
-                        <button onclick="calculateShiftTime()" class="enhanced-btn bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition-all shadow-lg hover:shadow-blue-500/50 text-lg">
+                        <button onclick="calculateShiftTime()"
+                            class="enhanced-btn bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition-all shadow-lg hover:shadow-blue-500/50 text-lg">
                             🧮 คำนวณเวลา
                         </button>
                     </div>
@@ -1902,10 +2150,12 @@
 
                     <!-- Action Buttons -->
                     <div class="flex justify-center space-x-4 mt-4">
-                        <button onclick="clearShiftTime()" class="enhanced-btn bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
+                        <button onclick="clearShiftTime()"
+                            class="enhanced-btn bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
                             🗑️ ล้างข้อมูล
                         </button>
-                        <button onclick="copyShiftTime()" id="copyShiftBtn" class="enhanced-btn bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors hidden">
+                        <button onclick="copyShiftTime()" id="copyShiftBtn"
+                            class="enhanced-btn bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors hidden">
                             📋 คัดลอกเวลา
                         </button>
                     </div>
@@ -1915,7 +2165,8 @@
 
                 <!-- Back Button -->
                 <div class="text-center mt-8">
-                    <button onclick="showPage('homePage')" class="enhanced-btn bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-lg transition-colors backdrop-blur-md shadow-lg hover:shadow-white/20">
+                    <button onclick="showPage('homePage')"
+                        class="enhanced-btn bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-lg transition-colors backdrop-blur-md shadow-lg hover:shadow-white/20">
                         ← กลับหน้าหลัก
                     </button>
                 </div>
@@ -1926,13 +2177,13 @@
     <script>
         // Global variables
         let selectedCharges = [];
-        
+
         // System functions
         function enterSystem() {
             document.getElementById('welcomeScreen').classList.add('hidden');
             document.getElementById('homePage').classList.remove('hidden');
             document.getElementById('mainNavigation').classList.remove('hidden');
-            
+
             // เปิดเพลงเมื่อเข้าระบบ (ถ้ามี)
             const audio = document.getElementById('backgroundMusic');
             if (audio && audio.src) {
@@ -1973,16 +2224,16 @@
                 description: 'เพลงประจำระบบ (ไฟล์ต้นฉบับ)'
             }
         ];
-        
+
         function initializeMusicControls() {
             const audio = document.getElementById('backgroundMusic');
             const muteBtn = document.getElementById('muteBtn');
             const volumeSlider = document.getElementById('volumeSlider');
             const volumeDisplay = document.getElementById('volumeDisplay');
             const changeMusicBtn = document.getElementById('changeMusicBtn');
-            
+
             if (!audio) return;
-            
+
             // ลิสต์เพลงที่สามารถใช้ได้ (ลำดับความสำคัญ)
             const musicSources = [
                 './XIN TOWN - SAWMENOW.mp3',  // ไฟล์ในโฟลเดอร์เดียวกัน
@@ -1991,10 +2242,10 @@
                 'music/XIN TOWN - SAWMENOW.mp3',  // ไฟล์ในโฟลเดอร์ music
                 'audio/XIN TOWN - SAWMENOW.mp3'   // ไฟล์ในโฟลเดอร์ audio
             ];
-            
+
             let currentSourceIndex = 0;
             let musicLoaded = false;
-            
+
             // ฟังก์ชันลองโหลดเพลงจากแหล่งต่างๆ
             function tryLoadMusic() {
                 if (currentSourceIndex >= musicSources.length) {
@@ -2007,15 +2258,15 @@
                     }
                     return;
                 }
-                
+
                 const source = musicSources[currentSourceIndex];
                 audio.src = source;
-                
+
                 // ลองโหลดเพลง
                 audio.load();
-                
+
                 // ตรวจสอบว่าโหลดได้หรือไม่
-                audio.addEventListener('canplaythrough', function() {
+                audio.addEventListener('canplaythrough', function () {
                     if (!musicLoaded) {
                         musicLoaded = true;
                         console.log(`โหลดเพลงสำเร็จจาก: ${source}`);
@@ -2028,8 +2279,8 @@
                         updateCurrentPlaying();
                     }
                 }, { once: true });
-                
-                audio.addEventListener('error', function() {
+
+                audio.addEventListener('error', function () {
                     if (!musicLoaded) {
                         console.log(`ไม่สามารถโหลดเพลงจาก: ${source}`);
                         currentSourceIndex++;
@@ -2037,20 +2288,20 @@
                     }
                 }, { once: true });
             }
-            
+
             // เริ่มลองโหลดเพลง
             tryLoadMusic();
-            
+
             // Set initial volume
             audio.volume = 0.2;
-            
+
             // Mute/unmute button
-            muteBtn.addEventListener('click', function() {
+            muteBtn.addEventListener('click', function () {
                 if (!musicLoaded && currentMusicType === 'default') {
                     alert('ไม่พบไฟล์เพลง กรุณาตรวจสอบว่าได้อัพโหลดไฟล์ "XIN TOWN - SAWMENOW.mp3" แล้ว');
                     return;
                 }
-                
+
                 if (audio.muted) {
                     audio.muted = false;
                     this.textContent = '🔊';
@@ -2059,41 +2310,41 @@
                     this.textContent = '🔇';
                 }
             });
-            
+
             // Volume slider
-            volumeSlider.addEventListener('input', function() {
+            volumeSlider.addEventListener('input', function () {
                 const volume = this.value / 100;
                 audio.volume = volume;
                 volumeDisplay.textContent = this.value + '%';
-                
+
                 if (volume === 0) {
                     muteBtn.textContent = '🔇';
                 } else {
                     muteBtn.textContent = '🔊';
                 }
             });
-            
+
             // Change music button
-            changeMusicBtn.addEventListener('click', function() {
+            changeMusicBtn.addEventListener('click', function () {
                 openMusicModal();
             });
         }
-        
+
         // Music modal functions
         function openMusicModal() {
             document.getElementById('musicModal').classList.remove('hidden');
             updateCurrentPlaying();
             // No tabs needed - direct URL input
         }
-        
+
         function closeMusicModal() {
             document.getElementById('musicModal').classList.add('hidden');
         }
-        
+
         function updateCurrentPlaying() {
             const currentPlaying = document.getElementById('currentPlaying');
             const currentSongName = document.getElementById('currentSongName');
-            
+
             if (currentMusicName) {
                 currentPlaying.classList.remove('hidden');
                 currentSongName.textContent = currentMusicName;
@@ -2101,32 +2352,32 @@
                 currentPlaying.classList.add('hidden');
             }
         }
-        
+
         // Load YouTube music and add to playlist
         function loadYouTubeMusic() {
             const youtubeUrl = document.getElementById('youtubeUrl').value.trim();
-            
+
             if (!youtubeUrl) {
                 alert('กรุณาใส่ URL ของ YouTube');
                 return;
             }
-            
+
             // Extract video ID from YouTube URL
             const videoId = extractYouTubeVideoId(youtubeUrl);
             if (!videoId) {
                 alert('URL ของ YouTube ไม่ถูกต้อง');
                 return;
             }
-            
+
             // Show loading state
             const loadButton = document.querySelector('button[onclick="loadYouTubeMusic()"]');
             const originalText = loadButton.textContent;
             loadButton.textContent = 'กำลังโหลด...';
             loadButton.disabled = true;
-            
+
             // Get video title using YouTube oEmbed API
             const apiUrl = "https://www.youtube.com/oembed?url=" + encodeURIComponent(youtubeUrl) + "&format=json";
-            
+
             fetch(apiUrl)
                 .then(response => {
                     if (!response.ok) {
@@ -2136,10 +2387,10 @@
                 })
                 .then(data => {
                     const videoTitle = data.title;
-                    
+
                     // Create YouTube embed URL for audio
                     const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1`;
-                    
+
                     // Add to playlist
                     const newMusic = {
                         id: `youtube_${videoId}`,
@@ -2150,34 +2401,34 @@
                         icon: '🎬',
                         description: 'เพลงจาก YouTube'
                     };
-                    
+
                     // Check if already exists
                     const existingIndex = musicPlaylist.findIndex(music => music.id === newMusic.id);
                     if (existingIndex === -1) {
                         musicPlaylist.push(newMusic);
                         updatePlaylistDisplay();
                         savePlaylistToStorage();
-                        
+
                         // Play the new music
                         playMusicFromPlaylist(newMusic.id);
-                        
+
                         alert(`เพิ่มเพลง "${videoTitle}" ลงในรายการแล้ว!`);
                     } else {
                         alert('เพลงนี้มีในรายการแล้ว');
                     }
-                    
+
                     // Clear input
                     document.getElementById('youtubeUrl').value = '';
                 })
                 .catch(error => {
                     console.error('Error fetching YouTube title:', error);
-                    
+
                     // Fallback to manual input if API fails
                     const videoTitle = prompt('ไม่สามารถดึงชื่อเพลงอัตโนมัติได้ กรุณาใส่ชื่อเพลง:', `YouTube Video ${videoId.substring(0, 8)}`);
                     if (videoTitle) {
                         // Create YouTube embed URL for audio
                         const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1`;
-                        
+
                         // Add to playlist
                         const newMusic = {
                             id: `youtube_${videoId}`,
@@ -2188,22 +2439,22 @@
                             icon: '🎬',
                             description: 'เพลงจาก YouTube'
                         };
-                        
+
                         // Check if already exists
                         const existingIndex = musicPlaylist.findIndex(music => music.id === newMusic.id);
                         if (existingIndex === -1) {
                             musicPlaylist.push(newMusic);
                             updatePlaylistDisplay();
                             savePlaylistToStorage();
-                            
+
                             // Play the new music
                             playMusicFromPlaylist(newMusic.id);
-                            
+
                             alert(`เพิ่มเพลง "${videoTitle}" ลงในรายการแล้ว!`);
                         } else {
                             alert('เพลงนี้มีในรายการแล้ว');
                         }
-                        
+
                         // Clear input
                         document.getElementById('youtubeUrl').value = '';
                     }
@@ -2214,21 +2465,21 @@
                     loadButton.disabled = false;
                 });
         }
-        
+
         // Play music from playlist
         function playMusicFromPlaylist(musicId) {
             const music = musicPlaylist.find(m => m.id === musicId);
             if (!music) return;
-            
+
             // Stop current audio/video
             const audio = document.getElementById('backgroundMusic');
             audio.pause();
-            
+
             const youtubeFrame = document.getElementById('youtubeFrame');
             if (youtubeFrame) {
                 youtubeFrame.src = '';
             }
-            
+
             if (music.type === 'file') {
                 // Load audio file
                 audio.src = music.source;
@@ -2248,50 +2499,50 @@
                 }
                 document.getElementById('youtubeFrame').src = music.source;
             }
-            
+
             currentMusicType = music.type;
             currentMusicName = music.name;
             updateCurrentPlaying();
             updatePlaylistDisplay(); // Update active state
         }
-        
+
         // Remove music from playlist
         function removeMusicFromPlaylist(musicId) {
             if (musicId === 'default') {
                 alert('ไม่สามารถลบเพลงต้นฉบับได้');
                 return;
             }
-            
+
             const musicIndex = musicPlaylist.findIndex(m => m.id === musicId);
             if (musicIndex === -1) return;
-            
+
             const music = musicPlaylist[musicIndex];
-            
+
             if (confirm(`ต้องการลบเพลง "${music.name}" ออกจากรายการหรือไม่?`)) {
                 // If currently playing this music, switch to default
                 if (currentMusicName === music.name) {
                     playMusicFromPlaylist('default');
                 }
-                
+
                 musicPlaylist.splice(musicIndex, 1);
                 updatePlaylistDisplay();
                 savePlaylistToStorage();
-                
+
                 alert(`ลบเพลง "${music.name}" ออกจากรายการแล้ว`);
             }
         }
-        
+
         // Update playlist display
         function updatePlaylistDisplay() {
             const container = document.getElementById('musicPlaylistContainer');
             if (!container) return;
-            
+
             let html = '';
-            
+
             musicPlaylist.forEach(music => {
                 const isActive = currentMusicName === music.name;
                 const activeClass = isActive ? 'bg-blue-100 border-blue-400' : 'bg-gray-50 hover:bg-blue-50';
-                
+
                 html += `
                     <div class="preset-music ${activeClass} p-3 rounded-lg cursor-pointer border transition-all">
                         <div class="flex justify-between items-center">
@@ -2307,10 +2558,10 @@
                     </div>
                 `;
             });
-            
+
             container.innerHTML = html;
         }
-        
+
         // Save playlist to localStorage
         function savePlaylistToStorage() {
             try {
@@ -2320,7 +2571,7 @@
                 console.log('ไม่สามารถบันทึกรายการเพลงได้:', error);
             }
         }
-        
+
         // Load playlist from localStorage
         function loadPlaylistFromStorage() {
             try {
@@ -2335,39 +2586,39 @@
                 console.log('ไม่สามารถโหลดรายการเพลงได้:', error);
             }
         }
-        
+
         // Clear all playlist except default
         function clearPlaylist() {
             if (confirm('ต้องการล้างรายการเพลงทั้งหมดหรือไม่? (ยกเว้นเพลงต้นฉบับ)')) {
                 // Keep only default music
                 musicPlaylist = [musicPlaylist[0]];
-                
+
                 // Switch to default if currently playing other music
                 const defaultMusic = musicPlaylist[0];
                 if (currentMusicName !== defaultMusic.name) {
                     playMusicFromPlaylist('default');
                 }
-                
+
                 updatePlaylistDisplay();
                 savePlaylistToStorage();
-                
+
                 alert('ล้างรายการเพลงเรียบร้อยแล้ว');
             }
         }
-        
+
         // Extract YouTube video ID from URL
         function extractYouTubeVideoId(url) {
             const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
             const match = url.match(regExp);
             return (match && match[7].length === 11) ? match[7] : null;
         }
-        
-        // No tab switching needed anymore - only URL input
-        
-        // Search functions removed - only URL input available
-        
 
-        
+        // No tab switching needed anymore - only URL input
+
+        // Search functions removed - only URL input available
+
+
+
         // Charge database with names and descriptions
         const chargeDatabase = {
             // ค่าปรับปกติ
@@ -2390,14 +2641,14 @@
             darkCar: { name: 'นำรถทึบมาทำงานดำ', desc: 'การใช้รถที่มีกระจกทึบในการกระทำผิด', fine: 0, jail: 0, special: 'X4 ของคดี(ค่าปรับ)' },
             mountain: { name: 'ขึ้นเขา', desc: 'การขึ้นไปบนเขาโดยไม่ได้รับอนุญาต', fine: 0, jail: 0, special: 'X4 ของคดี(ค่าปรับ)' },
             beforeServerReset: { name: 'ทำงานดำก่อนหลังเซิฟรี 10 นาที', desc: 'การทำงานดำในช่วงก่อนหลังเซิฟเวอร์รีเซ็ต', fine: 0, jail: 0, special: 'X10 ของคดี(ค่าปรับ)' },
-            
+
             // ของผิดกฎหมาย
             cement: { name: 'ครอบครองปูน', desc: 'มีปูนในครอบครองโดยผิดกฎหมาย', fine: 2000, jail: 3, quantity: true },
             wire: { name: 'ครอบครองสายไฟ', desc: 'มีสายไฟในครอบครองโดยผิดกฎหมาย', fine: 2000, jail: 3, quantity: true },
             illegalMoney: { name: 'ครอบครองเงินผิดกฎหมาย', desc: 'มีเงินที่ได้มาโดยผิดกฎหมาย', fine: 0, jail: 5, special: 'เงินแดง X2', quantity: true, fixedJail: true },
             capsules: { name: 'ครอบครอง Capsule Blue, Red, Green', desc: 'มี Capsule ในครอบครองโดยผิดกฎหมาย', fine: 3000, jail: 5, quantity: true },
             lockpick: { name: 'ครอบครอง Lockpick', desc: 'มีอุปกรณ์งัดแงะในครอบครอง', fine: 5000, jail: 10, quantity: true },
-            
+
             // คดีแดง
             noCooperation: { name: 'ไม่ให้ความร่วมมือกับเจ้าหน้าที่', desc: 'ไม่ให้ความร่วมมือในการสืบสวน', fine: 30000, jail: 10 },
             stealGovCar: { name: 'พยายามขโมยรถเจ้าหน้าที่', desc: 'พยายามขโมยรถของเจ้าหน้าที่', fine: 70000, jail: 20 },
@@ -2409,7 +2660,7 @@
             intentAssaultOfficer: { name: 'เจตนาทำร้ายร่างกาย', desc: 'การทำร้ายร่างกายโดยเจตนา', fine: 20000, jail: 10 },
             embezzlementRed: { name: 'ยักยอกทรัพย์', desc: 'การยักยอกทรัพย์สินของผู้อื่น', fine: 15000, jail: 20 }
         };
-        
+
         let totalFine = 0;
         let totalJail = 0;
         let isRealTimeMode = false; // Track if real-time calculation is active
@@ -2417,8 +2668,8 @@
         // Helper functions for charge categorization
         function isRedCaseCharge(chargeId) {
             const redCaseCharges = [
-                'noCooperation', 'stealGovCar', 'disturbOfficer', 'murder', 'robbery', 
-                'carTheft', 'terrorism', 'disturbGovArea', 'impersonateOfficer', 
+                'noCooperation', 'stealGovCar', 'disturbOfficer', 'murder', 'robbery',
+                'carTheft', 'terrorism', 'disturbGovArea', 'impersonateOfficer',
                 'falseReport', 'assaultOfficer', 'intentAssaultOfficer', 'embezzlementRed'
             ];
             return redCaseCharges.includes(chargeId.replace(/_\d+$/, ''));
@@ -2433,7 +2684,7 @@
         function addIllegalCharge(chargeId) {
             // Check if this charge already exists
             const existingIndex = selectedCharges.findIndex(charge => charge.originalId === chargeId);
-            
+
             if (existingIndex !== -1) {
                 // Remove existing charge
                 selectedCharges.splice(existingIndex, 1);
@@ -2446,10 +2697,10 @@
             const quantityInput = document.querySelector(`input[data-charge="${chargeId}"]`);
             const quantity = parseInt(quantityInput.value) || 1;
             const chargeInfo = chargeDatabase[chargeId];
-            
+
             // Create unique ID for this charge instance
             const uniqueId = `${chargeId}_${Date.now()}`;
-            
+
             const newCharge = {
                 id: uniqueId,
                 originalId: chargeId,
@@ -2462,12 +2713,12 @@
                 originalJail: chargeInfo.jail,
                 special: chargeInfo.special
             };
-            
+
             selectedCharges.push(newCharge);
             updateSelectedChargesDisplay();
             updateTotalCalculation();
             updateIllegalItemAppearance(chargeId, true);
-            
+
             // Reset quantity input
             quantityInput.value = 1;
         }
@@ -2475,7 +2726,7 @@
         // Handle illegal charge button click (add or remove)
         function handleIllegalChargeButton(chargeId) {
             const hasCharge = selectedCharges.some(charge => charge.originalId === chargeId);
-            
+
             if (hasCharge) {
                 // Remove all instances of this charge type
                 selectedCharges = selectedCharges.filter(charge => charge.originalId !== chargeId);
@@ -2491,7 +2742,7 @@
         // Toggle charge selection
         function toggleCharge(chargeId, fine, jail) {
             const existingIndex = selectedCharges.findIndex(charge => charge.originalId === chargeId);
-            
+
             if (existingIndex !== -1) {
                 // Remove charge
                 selectedCharges.splice(existingIndex, 1);
@@ -2515,7 +2766,7 @@
                     selectedCharges.push(newCharge);
                 }
             }
-            
+
             updateSelectedChargesDisplay();
             updateTotalCalculation();
             updateChargeItemAppearance();
@@ -2526,13 +2777,13 @@
             document.querySelectorAll('.charge-item').forEach(item => {
                 const chargeId = item.getAttribute('data-charge');
                 const isSelected = selectedCharges.find(charge => charge.originalId === chargeId || charge.id === chargeId);
-                
+
                 // Don't change appearance for illegal items since they have their own function
                 const isIllegalItem = ['cement', 'wire', 'illegalMoney', 'capsules', 'lockpick'].includes(chargeId);
                 if (isIllegalItem) {
                     return;
                 }
-                
+
                 if (isSelected) {
                     item.classList.add('bg-blue-100', 'border-blue-400');
                     item.classList.remove('bg-gray-50', 'hover:bg-blue-50');
@@ -2547,7 +2798,7 @@
         function updateIllegalItemAppearance(chargeId, isSelected) {
             const item = document.querySelector(`[data-charge="${chargeId}"]`);
             const button = item.querySelector('button');
-            
+
             if (isSelected) {
                 item.classList.add('bg-blue-100', 'border-blue-400');
                 item.classList.remove('bg-gray-50', 'hover:bg-blue-50');
@@ -2578,7 +2829,7 @@
             const calculationResults = document.getElementById('calculationResults');
             const specialAlert = document.getElementById('specialAlert');
             const copyButtonContainer = document.getElementById('copyButtonContainer');
-            
+
             if (selectedCharges.length === 0) {
                 container.innerHTML = `<p class="text-gray-500 italic">ยังไม่ได้เลือกข้อหา</p>`;
                 noCalculation.classList.remove('hidden');
@@ -2588,18 +2839,18 @@
                 isRealTimeMode = false; // Reset real-time mode when no charges
                 return;
             }
-            
+
             // Check for special charges that affect calculation
-            const hasSpecialCharges = selectedCharges.some(charge => 
+            const hasSpecialCharges = selectedCharges.some(charge =>
                 charge.special || isMultiplierCharge(charge.originalId)
             );
-            
+
             if (hasSpecialCharges) {
                 specialAlert.classList.remove('hidden');
             } else {
                 specialAlert.classList.add('hidden');
             }
-            
+
             let html = '';
             selectedCharges.forEach(charge => {
                 html += `
@@ -2611,12 +2862,12 @@
                         </div>
                         <div class="flex items-center space-x-2">
                             <div class="text-right text-sm">
-                                ${charge.special && charge.originalId === 'illegalMoney' ? 
-                                    `<div class="text-purple-600 font-bold">${charge.quantity * 2} XC (${charge.special})</div>` :
-                                    charge.special ? 
-                                    `<div class="text-purple-600 font-bold">${charge.special}</div>` :
-                                    `<div class="text-red-600 font-bold">${charge.fine.toLocaleString()} XC</div>`
-                                }
+                                ${charge.special && charge.originalId === 'illegalMoney' ?
+                        `<div class="text-purple-600 font-bold">${charge.quantity * 2} XC (${charge.special})</div>` :
+                        charge.special ?
+                            `<div class="text-purple-600 font-bold">${charge.special}</div>` :
+                            `<div class="text-red-600 font-bold">${charge.fine.toLocaleString()} XC</div>`
+                    }
                                 <div class="text-orange-600">${charge.jail} นาที</div>
                             </div>
                             <button onclick="removeCharge('${charge.id}')" class="text-red-500 hover:text-red-700 ml-2">
@@ -2626,9 +2877,9 @@
                     </div>
                 `;
             });
-            
+
             container.innerHTML = html;
-            
+
             // Only auto-calculate if real-time mode is active
             if (selectedCharges.length > 0 && isRealTimeMode) {
                 calculateAndDisplayResults();
@@ -2641,7 +2892,7 @@
             const redCaseCharges = selectedCharges.filter(charge => isRedCaseCharge(charge.originalId));
             const otherCharges = selectedCharges.filter(charge => !isRedCaseCharge(charge.originalId) && !isMultiplierCharge(charge.originalId));
             const multiplierCharges = selectedCharges.filter(charge => isMultiplierCharge(charge.originalId));
-            
+
             // Calculate base totals for non-red cases (excluding multiplier charges)
             let baseFine = otherCharges.reduce((sum, charge) => {
                 if (!charge.special || charge.originalId === 'illegalMoney') {
@@ -2649,21 +2900,21 @@
                 }
                 return sum;
             }, 0);
-            
+
             let baseJail = otherCharges.reduce((sum, charge) => {
                 return sum + charge.jail;
             }, 0);
-            
+
             // Calculate red case totals (not affected by multipliers)
             let redCaseFine = redCaseCharges.reduce((sum, charge) => sum + charge.fine, 0);
             let redCaseJail = redCaseCharges.reduce((sum, charge) => sum + charge.jail, 0);
-            
+
             // Check for multiplier charges
             let hasOutOfCity = false;
             let hasDarkCar = false;
             let hasMountain = false;
             let hasBeforeServerReset = false;
-            
+
             multiplierCharges.forEach(charge => {
                 if (charge.originalId === 'outOfCity') {
                     hasOutOfCity = true;
@@ -2675,10 +2926,10 @@
                     hasBeforeServerReset = true;
                 }
             });
-            
+
             // Calculate multiplier by adding all multipliers together
             let multiplier = 0;
-            
+
             // Add each multiplier value
             if (hasBeforeServerReset) {
                 multiplier += 10; // X10
@@ -2692,23 +2943,23 @@
             if (hasDarkCar) {
                 multiplier += 4; // X4
             }
-            
+
             // If no multipliers, use 1 as base
             if (multiplier === 0) {
                 multiplier = 1;
             }
-            
+
             // Apply multiplier only to base charges (not red cases)
             const multipliedFine = baseFine * multiplier;
-            
+
             // Handle special charges like illegal money
             let specialFine = 0;
             selectedCharges.forEach(charge => {
                 if (charge.originalId === 'illegalMoney') {
-                    specialFine += charge.quantity * 2; // X2 of illegal money amount
+                    specialFine += (charge.quantity * 2) * multiplier; // X2 of illegal money amount * multiplier
                 }
             });
-            
+
             // Calculate final totals
             totalFine = multipliedFine + redCaseFine + specialFine;
             totalJail = baseJail + redCaseJail;
@@ -2721,13 +2972,13 @@
             let baseJail = 0;
             let bailableJail = 0; // Only regular charges and illegal items can be bailed
             let redCaseCharges = [];
-            
+
             // Check for special modifiers
             let hasMountain = false;
             let hasOutOfCity = false;
             let hasDarkCar = false;
             let hasBeforeServerReset = false;
-            
+
             selectedCharges.forEach(charge => {
                 if (charge.originalId === 'mountain') {
                     hasMountain = true;
@@ -2749,10 +3000,10 @@
                     bailableJail += charge.jail; // Regular charges can be bailed
                 }
             });
-            
+
             // Calculate multiplier by adding all multipliers together
             let multiplier = 0;
-            
+
             // Add each multiplier value
             if (hasBeforeServerReset) {
                 multiplier += 10; // X10
@@ -2766,45 +3017,45 @@
             if (hasDarkCar) {
                 multiplier += 4; // X4
             }
-            
+
             // If no multipliers, use 1 as base
             if (multiplier === 0) {
                 multiplier = 1;
             }
-            
+
             // Calculate final totals
             const multipliedFine = baseFine * multiplier;
             const redCaseFine = redCaseCharges.reduce((sum, charge) => sum + charge.fine, 0);
             const redCaseJail = redCaseCharges.reduce((sum, charge) => sum + charge.jail, 0);
-            
+
             let totalFine = multipliedFine + redCaseFine;
             const totalJail = baseJail + redCaseJail;
-            
+
             // Handle special charges
             selectedCharges.forEach(charge => {
                 if (charge.originalId === 'illegalMoney') {
-                    totalFine += charge.quantity * 2; // X2 of illegal money amount
+                    totalFine += (charge.quantity * 2) * multiplier; // X2 of illegal money amount * multiplier
                 }
             });
-            
+
             // Check if there are red case charges
             const hasRedCases = redCaseCharges.length > 0;
-            
+
             // Calculate bail amount (only for bailable charges)
             const bailAmount = bailableJail * 2000;
-            
+
             // Calculate total with bail
             const totalWithBail = totalFine + bailAmount;
-            
+
             // Update display elements
             document.getElementById('totalFine').textContent = totalFine.toLocaleString() + ' XinCoin';
             document.getElementById('totalJail').textContent = totalJail.toLocaleString() + ' นาที';
-            
+
             // Update bail display based on red case presence
             const bailAmountElement = document.getElementById('bailAmount');
             const bailContainer = bailAmountElement.closest('.bg-green-50');
             const bailDescription = bailContainer.querySelector('p');
-            
+
             if (hasRedCases) {
                 bailAmountElement.textContent = bailAmount.toLocaleString() + ' XinCoin';
                 bailDescription.innerHTML = `คำนวณจากเวลาจำคุกที่สามารถประกันได้ (${bailableJail} นาที × 2,000 XinCoin)<br><span class="text-red-600 font-medium">⚠️ หมายเหตุ: คดีแดงไม่สามารถประกันได้</span>`;
@@ -2812,11 +3063,11 @@
                 bailAmountElement.textContent = bailAmount.toLocaleString() + ' XinCoin';
                 bailDescription.textContent = `คำนวณจากเวลาจำคุก (${totalJail} นาที × 2,000 XinCoin)`;
             }
-            
+
             // Update total with bail and red case jail info display
             const redCaseJailInfoTotal = document.getElementById('redCaseJailInfoTotal');
             const redCaseJailTextTotal = document.getElementById('redCaseJailTextTotal');
-            
+
             if (hasRedCases && redCaseJail > 0) {
                 document.getElementById('totalWithBail').textContent = totalWithBail.toLocaleString() + ' XinCoin + คดีแดง ' + redCaseJail + ' นาที';
                 redCaseJailInfoTotal.classList.add('hidden'); // Hide the separate red case info
@@ -2824,7 +3075,7 @@
                 document.getElementById('totalWithBail').textContent = totalWithBail.toLocaleString() + ' XinCoin';
                 redCaseJailInfoTotal.classList.add('hidden');
             }
-            
+
             // Show results
             document.getElementById('noCalculation').classList.add('hidden');
             document.getElementById('calculationResults').classList.remove('hidden');
@@ -2837,7 +3088,7 @@
                 alert('กรุณาเลือกข้อหาก่อนคำนวณ');
                 return;
             }
-            
+
             // Enable real-time mode
             isRealTimeMode = true;
             calculateAndDisplayResults();
@@ -2851,13 +3102,13 @@
                     updateIllegalItemAppearance(charge.originalId, false);
                 }
             });
-            
+
             selectedCharges = [];
             isRealTimeMode = false; // Disable real-time mode
             updateSelectedChargesDisplay();
             updateTotalCalculation();
             updateChargeItemAppearance();
-            
+
             // Hide results
             document.getElementById('noCalculation').classList.remove('hidden');
             document.getElementById('calculationResults').classList.add('hidden');
@@ -2870,7 +3121,7 @@
                 alert('ไม่มีข้อหาให้คัดลอก');
                 return;
             }
-            
+
             // สร้างรายการข้อหาแบบเรียงกันไป
             let chargeNames = [];
             selectedCharges.forEach(charge => {
@@ -2880,9 +3131,9 @@
                     chargeNames.push(charge.name);
                 }
             });
-            
+
             const copyText = chargeNames.join(', ');
-            
+
             // Try modern clipboard API first, then fallback to older method
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(copyText).then(() => {
@@ -2894,7 +3145,7 @@
                 fallbackCopyToClipboard(copyText, 'copyChargesBtn');
             }
         }
-        
+
         // Fallback copy method for older browsers or non-secure contexts
         function fallbackCopyToClipboard(text, buttonId) {
             const textArea = document.createElement('textarea');
@@ -2905,7 +3156,7 @@
             document.body.appendChild(textArea);
             textArea.focus();
             textArea.select();
-            
+
             try {
                 const successful = document.execCommand('copy');
                 if (successful) {
@@ -2916,19 +3167,19 @@
             } catch (err) {
                 alert('ไม่สามารถคัดลอกได้ กรุณาเลือกข้อความและกด Ctrl+C');
             }
-            
+
             document.body.removeChild(textArea);
         }
-        
+
         // Show copy success feedback
         function showCopySuccess(buttonId) {
             const button = document.getElementById(buttonId);
             const originalText = button.innerHTML;
             const originalClasses = button.className;
-            
+
             button.innerHTML = '✅ คัดลอกแล้ว!';
             button.className = button.className.replace(/bg-\w+-\d+/g, 'bg-green-600');
-            
+
             setTimeout(() => {
                 button.innerHTML = originalText;
                 button.className = originalClasses;
@@ -2942,7 +3193,7 @@
                 tab.classList.remove('active');
             });
             document.querySelector(`[data-category="${category}"]`).classList.add('active');
-            
+
             // Show/hide content
             document.querySelectorAll('.category-content').forEach(content => {
                 content.classList.add('hidden');
@@ -2953,8 +3204,8 @@
         // Helper functions for charge categorization
         function isRedCaseCharge(chargeId) {
             const redCaseCharges = [
-                'noCooperation', 'stealGovCar', 'disturbOfficer', 'disturbGovArea', 
-                'impersonateOfficer', 'falseReport', 'assaultOfficer', 
+                'noCooperation', 'stealGovCar', 'disturbOfficer', 'disturbGovArea',
+                'impersonateOfficer', 'falseReport', 'assaultOfficer',
                 'intentAssaultOfficer', 'embezzlementRed'
             ];
             return redCaseCharges.includes(chargeId.replace(/_\d+$/, ''));
@@ -2973,12 +3224,12 @@
             const clearSearchBtn = document.getElementById('clearSearch');
             const searchResults = document.getElementById('searchResults');
             const searchCount = document.getElementById('searchCount');
-            
+
             if (!searchInput) return;
-            
-            searchInput.addEventListener('input', function() {
+
+            searchInput.addEventListener('input', function () {
                 const searchTerm = this.value.toLowerCase().trim();
-                
+
                 if (searchTerm === '') {
                     // Clear search
                     clearSearchBtn.classList.add('hidden');
@@ -2988,19 +3239,19 @@
                     });
                     return;
                 }
-                
+
                 clearSearchBtn.classList.remove('hidden');
-                
+
                 let matchCount = 0;
                 document.querySelectorAll('.charge-item').forEach(item => {
                     const keywords = item.getAttribute('data-keywords') || '';
                     const chargeName = item.querySelector('h4').textContent.toLowerCase();
                     const chargeDesc = item.querySelector('p').textContent.toLowerCase();
-                    
+
                     const isMatch = keywords.toLowerCase().includes(searchTerm) ||
-                                   chargeName.includes(searchTerm) ||
-                                   chargeDesc.includes(searchTerm);
-                    
+                        chargeName.includes(searchTerm) ||
+                        chargeDesc.includes(searchTerm);
+
                     if (isMatch) {
                         item.style.display = 'block';
                         matchCount++;
@@ -3008,12 +3259,12 @@
                         item.style.display = 'none';
                     }
                 });
-                
+
                 searchCount.textContent = matchCount;
                 searchResults.classList.remove('hidden');
             });
-            
-            clearSearchBtn.addEventListener('click', function() {
+
+            clearSearchBtn.addEventListener('click', function () {
                 searchInput.value = '';
                 searchInput.dispatchEvent(new Event('input'));
             });
@@ -3023,45 +3274,45 @@
         function calculateShiftTime() {
             const startTimeInput = document.getElementById('startTime');
             const endTimeInput = document.getElementById('endTime');
-            
+
             if (!startTimeInput.value || !endTimeInput.value) {
                 alert('กรุณากรอกเวลาเริ่มต้นและเวลาสิ้นสุด');
                 return;
             }
-            
+
             const startTime = startTimeInput.value.trim();
             const endTime = endTimeInput.value.trim();
-            
+
             // Validate time format and values using our validation function
             if (!validateTime(startTime)) {
                 alert('เวลาเริ่มต้นไม่ถูกต้อง กรุณากรอกเวลาที่ถูกต้อง (ชั่วโมง 0-23, นาที 0-59)');
                 showTimeError(startTimeInput, 'เวลาไม่ถูกต้อง');
                 return;
             }
-            
+
             if (!validateTime(endTime)) {
                 alert('เวลาสิ้นสุดไม่ถูกต้อง กรุณากรอกเวลาที่ถูกต้อง (ชั่วโมง 0-23, นาที 0-59)');
                 showTimeError(endTimeInput, 'เวลาไม่ถูกต้อง');
                 return;
             }
-            
+
             // Clear any existing errors
             clearTimeError(startTimeInput);
             clearTimeError(endTimeInput);
-            
+
             // Convert time strings to minutes
             const startMinutes = timeToMinutes(startTime);
             let endMinutes = timeToMinutes(endTime);
-            
+
             // Handle overnight shifts (if end time is earlier than start time)
             if (endMinutes < startMinutes) {
                 endMinutes += 24 * 60; // Add 24 hours in minutes
             }
-            
+
             const totalMinutes = endMinutes - startMinutes;
             const hours = Math.floor(totalMinutes / 60);
             const minutes = totalMinutes % 60;
-            
+
             // Update display
             document.getElementById('totalHours').textContent = hours;
             document.getElementById('totalMinutes').textContent = minutes;
@@ -3069,34 +3320,34 @@
             document.getElementById('displayEndTime').textContent = endTime;
             document.getElementById('displayTotalTime').textContent = `${hours} ชั่วโมง ${minutes} นาที`;
             document.getElementById('displayTotalMinutesOnly').textContent = `${totalMinutes} นาที`;
-            
+
             // Show results and copy button
             document.getElementById('shiftResults').classList.remove('hidden');
             document.getElementById('copyShiftBtn').classList.remove('hidden');
         }
-        
+
         function clearShiftTime() {
             document.getElementById('startTime').value = '';
             document.getElementById('endTime').value = '';
             document.getElementById('shiftResults').classList.add('hidden');
             document.getElementById('copyShiftBtn').classList.add('hidden');
         }
-        
+
         function copyShiftTime() {
             const startTime = document.getElementById('startTime').value;
             const endTime = document.getElementById('endTime').value;
             const totalTime = document.getElementById('displayTotalTime').textContent;
-            
+
             if (!startTime || !endTime) {
                 alert('กรุณาคำนวณเวลาก่อนคัดลอก');
                 return;
             }
-            
+
             const copyText = `ชื่อ : 
 Username : 
 เวลา : ${startTime}-${endTime}
 รวมเวลา : ${totalTime}`;
-            
+
             // Try modern clipboard API first, then fallback to older method
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(copyText).then(() => {
@@ -3108,7 +3359,7 @@ Username :
                 fallbackCopyToClipboard(copyText, 'copyShiftBtn');
             }
         }
-        
+
         function timeToMinutes(timeString) {
             const [hours, minutes] = timeString.split(':').map(Number);
             return hours * 60 + minutes;
@@ -3119,13 +3370,13 @@ Username :
         // Validate time format and values
         function validateTime(timeString) {
             if (!timeString) return false;
-            
+
             const parts = timeString.split(':');
             if (parts.length !== 2) return false;
-            
+
             const hour = parseInt(parts[0]);
             const minute = parseInt(parts[1]);
-            
+
             // Check if hour is between 0-23 and minute is between 0-59
             return !isNaN(hour) && !isNaN(minute) && hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59;
         }
@@ -3134,24 +3385,24 @@ Username :
         function formatTimeInput(value) {
             // Remove all non-digit characters except colon
             let cleanValue = value.replace(/[^\d:]/g, '');
-            
+
             // Handle different input formats
             if (cleanValue.includes(':')) {
                 const parts = cleanValue.split(':');
                 if (parts.length === 2) {
                     let hour = parts[0].padStart(2, '0');
                     let minute = parts[1].padStart(2, '0');
-                    
+
                     // Limit to 2 digits each
                     hour = hour.substring(0, 2);
                     minute = minute.substring(0, 2);
-                    
+
                     return `${hour}:${minute}`;
                 }
             } else if (cleanValue.length >= 1) {
                 // Handle formats like 9, 93, 930, 1630, etc.
                 const digits = cleanValue.replace(/\D/g, '');
-                
+
                 if (digits.length === 1) {
                     // Single digit like "9" -> "09:00"
                     return `0${digits}:00`;
@@ -3168,7 +3419,7 @@ Username :
                     return `${hour}:${minute}`;
                 }
             }
-            
+
             return cleanValue;
         }
 
@@ -3176,14 +3427,14 @@ Username :
         function validateTimeInput(value) {
             let isValid = true;
             let errorMessage = '';
-            
+
             // Check for time format HH:MM
             if (value.includes(':')) {
                 const parts = value.split(':');
                 if (parts.length === 2) {
                     const hour = parseInt(parts[0]);
                     const minute = parseInt(parts[1]);
-                    
+
                     if (isNaN(hour) || isNaN(minute)) {
                         isValid = false;
                         errorMessage = 'กรุณากรอกตัวเลขที่ถูกต้อง';
@@ -3200,7 +3451,7 @@ Username :
                 const numValue = value.replace(/[^\d]/g, '');
                 if (numValue.length >= 1) {
                     let hour, minute;
-                    
+
                     if (numValue.length === 1) {
                         hour = parseInt(numValue);
                         minute = 0;
@@ -3214,7 +3465,7 @@ Username :
                         hour = parseInt(numValue.substring(0, 2));
                         minute = parseInt(numValue.substring(2, 4));
                     }
-                    
+
                     if (hour > 23) {
                         isValid = false;
                         errorMessage = 'ชั่วโมงต้องไม่เกิน 23';
@@ -3224,7 +3475,7 @@ Username :
                     }
                 }
             }
-            
+
             return { isValid, errorMessage };
         }
 
@@ -3235,19 +3486,19 @@ Username :
             if (existingError) {
                 existingError.remove();
             }
-            
+
             // Create error message element
             const errorDiv = document.createElement('div');
             errorDiv.className = 'time-error text-red-600 text-sm mt-1';
             errorDiv.textContent = message;
-            
+
             // Add error styling to input
             input.style.borderColor = '#ef4444';
             input.style.backgroundColor = '#fef2f2';
-            
+
             // Insert error message after input
             input.parentNode.appendChild(errorDiv);
-            
+
             // Auto-remove error after 3 seconds
             setTimeout(() => {
                 if (errorDiv.parentNode) {
@@ -3271,12 +3522,12 @@ Username :
         // Initialize time inputs with validation and formatting
         function initializeTimeInputs() {
             const timeInputs = document.querySelectorAll('#startTime, #endTime');
-            
+
             timeInputs.forEach(input => {
                 // Validate on input
-                input.addEventListener('input', function() {
+                input.addEventListener('input', function () {
                     clearTimeError(this);
-                    
+
                     const value = this.value.trim();
                     if (value.length >= 1) {
                         const result = validateTimeInput(value);
@@ -3285,9 +3536,9 @@ Username :
                         }
                     }
                 });
-                
+
                 // Format and validate on blur
-                input.addEventListener('blur', function() {
+                input.addEventListener('blur', function () {
                     const value = this.value.trim();
                     if (value) {
                         const result = validateTimeInput(value);
@@ -3303,42 +3554,44 @@ Username :
                         }
                     }
                 });
-                
+
                 // Reset styling on focus
-                input.addEventListener('focus', function() {
+                input.addEventListener('focus', function () {
                     clearTimeError(this);
                 });
             });
         }
 
         // Initialize event listeners
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Initialize music controls
             initializeMusicControls();
-            
+
             // Load saved playlist
             loadPlaylistFromStorage();
-            
+
             // Initialize playlist display
             updatePlaylistDisplay();
-            
+
             // Initialize search
             initializeSearch();
-            
+
             // Add time input formatting
             initializeTimeInputs();
-            
+
             // Category tab switching
             document.querySelectorAll('.category-tab').forEach(tab => {
-                tab.addEventListener('click', function() {
+                tab.addEventListener('click', function () {
                     const category = this.getAttribute('data-category');
                     switchCategory(category);
                 });
             });
-            
+
             // Load auto-play setting on initialization
             loadAutoPlaySetting();
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9892f445328ba1c2',t:'MTc1OTU2MjgxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9892f445328ba1c2',t:'MTc1OTU2MjgxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
 </html>
