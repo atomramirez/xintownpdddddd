@@ -1466,6 +1466,36 @@
                             </div>
 
                             <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn"
+                                onclick="toggleCharge('suit', 20000, 5)" data-charge="suit" data-fine="20000"
+                                data-jail="5" data-keywords="แก๊งไม่ ใส่สูท แสดง ตัวตน">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">🩳 แก๊งไม่ใส่สูทแสดงตัวตน</h4>
+                                        <p class="text-sm text-gray-600">แก๊งไม่ใส่สูทแสดงตัวตน</p>
+                                    </div>
+                                    <div class="text-right text-sm">
+                                        <div class="text-red-600 font-bold">20,000 XC</div>
+                                        <div class="text-orange-600">5 นาที</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn"
+                                onclick="toggleCharge('pain', 50000, 15)" data-charge="pain" data-fine="50000"
+                                data-jail="15" data-keywords="ประชาชน พกเพน">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">💊ประชาชนพกเพน</h4>
+                                        <p class="text-sm text-gray-600">ประชาชนพกเพน</p>
+                                    </div>
+                                    <div class="text-right text-sm">
+                                        <div class="text-red-600 font-bold">20,000 XC</div>
+                                        <div class="text-orange-600">5 นาที</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="charge-item bg-gray-50 hover:bg-blue-50 p-3 rounded-lg cursor-pointer border transition-all enhanced-btn"
                                 onclick="toggleCharge('kidnap', 10000, 10)" data-charge="kidnap" data-fine="10000"
                                 data-jail="10" data-keywords="ลักพาตัว จับตัว ไม่ยินยอม">
                                 <div class="flex justify-between items-center">
@@ -2626,6 +2656,8 @@
             disturbance: { name: 'สร้างความวุ่นวาย ทุกรูปแบบ', desc: 'การกระทำที่ก่อให้เกิดความวุ่นวายในสังคม', fine: 5000, jail: 5 },
             mask: { name: 'ใส่หน้ากาก หรือปิดบังใบหน้า', desc: 'การปิดบังใบหน้าในที่สาธารณะ', fine: 3000, jail: 5 },
             assault: { name: 'เจตนาทำร้ายร่างกาย - ประชาชน', desc: 'การทำร้ายร่างกายผู้อื่นโดยเจตนา', fine: 20000, jail: 10 },
+            suit: { name: 'แก๊งไม่ใส่สูทแสดงตัวตน', desc: 'ทำงานดำโดยไม่ใส่สูทแสดงตัวตน', fine: 20000, jail: 5 },
+            pain: { name: 'ประชาชนพกเพน', desc: 'ประชาชนห้ามพกเพน', fine: 50000, jail: 15 },
             kidnap: { name: 'ลักพาตัว', desc: 'การจับตัวผู้อื่นไปโดยไม่ยินยอม', fine: 10000, jail: 10 },
             outOfCity: { name: 'ออกนอกเมือง', desc: 'การออกนอกเขตเมืองโดยไม่ได้รับอนุญาต', fine: 0, jail: 0, special: 'X2 ของคดี' },
             conspiracy: { name: 'สมรู้ร่วมคิด/ร่วมกันกระทำความผิด', desc: 'การร่วมมือกันกระทำความผิด', fine: 0, jail: 0, special: 'ตามคดีหลัก' },
